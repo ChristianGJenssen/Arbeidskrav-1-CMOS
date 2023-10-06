@@ -7,7 +7,53 @@ editor: visual
 ## Arbeidskrav 1
 
 ```{r}
+library(readxl)
+library(dplyr)
 
+# Les inn data
+data <- read_excel("Fysologisk testing.xlsx")
+
+# Funksjon for beregning av varians og gjennomsnitt
+calculate_cv_mean <- function(data, column_name) {
+  data %>%
+    group_by(id) %>%
+    summarize(cv = sd(.data[[column_name]], na.rm = TRUE) / mean(.data[[column_name]], na.rm = TRUE) * 100) %>%
+    pull(cv) %>%
+    mean(na.rm = TRUE)
+}
+
+# Beregn og skriv ut resultatene
+mean_cv <- calculate_cv_mean(data, "vo2max")
+mean_cv_wmax <- calculate_cv_mean(data, "w.max")
+mean_cv_maoda <- calculate_cv_mean(data, "MAOD.a")
+
+# Beregn og skriv ut standardavvik med 0.2-faktor
+std_dev_by_id <- data %>%
+  group_by(id) %>%
+  summarize(std_dev = sd(vo2max) * 0.2) %>%
+  rename(std_dev_vo2max_0.2 = std_dev)
+
+std_dev_wmax_by_id <- data %>%
+  group_by(id) %>%
+  summarize(std_dev = sd(w.max) * 0.2) %>%
+  rename(std_dev_wmax_0.2 = std_dev)
+
+std_dev_maod_a_by_id <- data %>%
+  group_by(id) %>%
+  summarize(std_dev = sd(MAOD.a) * 0.2) %>%
+  rename(std_dev_MAODa_0.2 = std_dev)
+
+# Skriv ut gjennomsnittet av standardavvik med 0.2-faktor
+mean_std_dev_vo2max <- mean(std_dev_by_id$std_dev_vo2max, na.rm = TRUE)
+mean_std_dev_wmax <- mean(std_dev_wmax_by_id$std_dev_wmax_0.2, na.rm = TRUE)
+mean_std_dev_maoda <- mean(std_dev_maod_a_by_id$std_dev_MAODa_0.2, na.rm = TRUE)
+
+print(mean_cv)
+print(mean_cv_wmax)
+print(mean_cv_maoda)
+print(mean_std_dev_vo2max)
+print(mean_std_dev_wmax)
+print(mean_std_dev_maoda)
 ```
 
 ```{r}
@@ -91,4 +137,202 @@ summary_table <- data %>%
 
 
 print(summary_table)
+```
+
+```{r}
+
+library(readxl)
+
+data <- read_excel("Fysologisk testing.xlsx")
+
+library(dplyr)
+
+
+cv_results <- data %>%
+  group_by(id) %>%
+  summarize(cv_vo2max = sd(vo2max, na.rm = TRUE) / mean(vo2max, na.rm = TRUE) * 100)
+
+print(cv_results)
+
+mean_cv <- mean(cv_results$cv_vo2max, na.rm = TRUE)
+
+print(mean_cv)
+
+cv_wmax_results <- data %>%
+  group_by(id) %>%
+  summarize(cv_wmax = sd(w.max, na.rm = TRUE) / mean(w.max, na.rm = TRUE) * 100)
+
+mean_cv_wmax <- mean(cv_wmax_results$cv_wmax, na.rm = TRUE)
+
+print(cv_wmax_results)
+
+print(mean_cv_wmax)
+
+cv_maoda_results <- data %>%
+  group_by(id) %>%
+  summarize(cv_maoda = sd(MAOD.a, na.rm = TRUE) / mean(MAOD.a, na.rm = TRUE) * 100)
+
+mean_cv_maoda <- mean(cv_maoda_results$cv_maoda, na.rm = TRUE)
+
+print(cv_maoda_results)
+
+print(mean_cv_maoda)
+
+std_dev_by_id <- data %>%
+  group_by(id) %>%
+  summarize(std_dev_vo2max = sd(vo2max))
+
+for (i in 1:nrow(std_dev_by_id)) {
+  std_dev_by_id$std_dev_vo2max[i] <- std_dev_by_id$std_dev_vo2max[i] * 0.2
+}
+print(std_dev_by_id)
+
+mean_std_dev <- mean(std_dev_by_id$std_dev_vo2max)
+
+print(mean_std_dev)
+print(std_dev_by_id)
+
+mean_std_dev_0.2 <- mean(std_dev_by_id$std_dev_vo2max_0.2)
+
+print(mean_std_dev_0.2)
+
+if ("std_dev_vo2max_0.2" %in% colnames(std_dev_by_id)) {
+
+  mean_std_dev_0.2 <- mean(std_dev_by_id$std_dev_vo2max_0.2)
+  
+  print(mean_std_dev_0.2)
+} else {
+  print("Kolonnen std_dev_vo2max_0.2 eksisterer ikke i dataframen.")
+}
+
+std_dev_wmax_by_id <- aggregate(data$w.max, by = list(data$id), FUN = function(x) sd(x) * 0.2)
+
+colnames(std_dev_wmax_by_id) <- c("ID", "std_dev_wmax_0.2")
+
+print(std_dev_wmax_by_id)
+
+mean_std_dev_wmax_0.2 <- mean(std_dev_wmax_by_id$std_dev_wmax_0.2)
+
+print(mean_std_dev_wmax_0.2)
+
+std_dev_maod_a_by_id <- aggregate(data$MAOD.a, by = list(data$id), FUN = function(x) sd(x) * 0.2)
+
+colnames(std_dev_maod_a_by_id) <- c("ID", "std_dev_MAODa_0.2")
+
+print(std_dev_maod_a_by_id)
+
+mean_std_dev_MAODa_0.2 <- mean(std_dev_MAODa_by_id$std_dev_MAODa_0.2)
+
+print(mean_std_dev_MAODa_0.2)
+
+mean_std_dev_MAOD_a_by_id <- mean(data$std_dev_MAODa_0.2, na.rm = TRUE)
+
+data <- na.omit(data)
+
+mean_std_dev_MAODa_0.2 <- mean(data$std_dev_MAODa_0.2)
+
+print(mean_std_dev_MAODa_0.2)
+
+data <- data %>%
+  group_by(id) %>%
+  mutate(std_dev_MAODa_0.2 = sd(MAOD.a) * 0.2)
+
+mean_std_dev_MAODa_0.2 <- mean(data$std_dev_MAODa_0.2, na.rm = TRUE)
+
+print(mean_std_dev_MAODa_0.2)
+```
+
+```{r}
+library(readxl)
+
+data <- read_excel("Fysologisk testing.xlsx")
+
+library(dplyr)
+
+cv_results <- data %>%
+  group_by(id) %>%
+  summarize(cv_vo2max = sd(vo2max, na.rm = TRUE) / mean(vo2max, na.rm = TRUE) * 100)
+
+print(cv_results)
+
+mean_cv <- mean(cv_results$cv_vo2max, na.rm = TRUE)
+
+print(mean_cv)
+
+cv_wmax_results <- data %>%
+  group_by(id) %>%
+  summarize(cv_wmax = sd(w.max, na.rm = TRUE) / mean(w.max, na.rm = TRUE) * 100)
+
+mean_cv_wmax <- mean(cv_wmax_results$cv_wmax, na.rm = TRUE)
+
+print(cv_wmax_results)
+
+print(mean_cv_wmax)
+
+cv_maoda_results <- data %>%
+  group_by(id) %>%
+  summarize(cv_maoda = sd(MAOD.a, na.rm = TRUE) / mean(MAOD.a, na.rm = TRUE) * 100)
+
+mean_cv_maoda <- mean(cv_maoda_results$cv_maoda, na.rm = TRUE)
+
+print(cv_maoda_results)
+
+print(mean_cv_maoda)
+
+std_dev_by_id <- data %>%
+  group_by(id) %>%
+  summarize(std_dev_vo2max = sd(vo2max))
+
+for (i in 1:nrow(std_dev_by_id)) {
+  std_dev_by_id$std_dev_vo2max[i] <- std_dev_by_id$std_dev_vo2max[i] * 0.2
+}
+
+std_dev_by_id$std_dev_vo2max_0.2 <- std_dev_by_id$std_dev_vo2max * 0.2  # Legg til kolonnen
+
+print(std_dev_by_id)
+
+mean_std_dev <- mean(std_dev_by_id$std_dev_vo2max)
+
+print(mean_std_dev)
+
+mean_std_dev_0.2 <- mean(std_dev_by_id$std_dev_vo2max_0.2)
+
+print(mean_std_dev_0.2)
+
+std_dev_wmax_by_id <- aggregate(data$w.max, by = list(data$id), FUN = function(x) sd(x) * 0.2)
+
+colnames(std_dev_wmax_by_id) <- c("ID", "std_dev_wmax_0.2")
+
+print(std_dev_wmax_by_id)
+
+mean_std_dev_wmax_0.2 <- mean(std_dev_wmax_by_id$std_dev_wmax_0.2)
+
+print(mean_std_dev_wmax_0.2)
+
+std_dev_maod_a_by_id <- aggregate(data$MAOD.a, by = list(data$id), FUN = function(x) sd(x) * 0.2)
+
+colnames(std_dev_maod_a_by_id) <- c("ID", "std_dev_MAODa_0.2")
+
+print(std_dev_maod_a_by_id)
+
+mean_std_dev_MAODa_0.2 <- mean(std_dev_maod_a_by_id$std_dev_MAODa_0.2)
+
+print(mean_std_dev_MAODa_0.2)
+
+mean_std_dev_MAOD_a_by_id <- mean(data$std_dev_MAODa_0.2, na.rm = TRUE)
+
+data <- na.omit(data)
+
+mean_std_dev_MAODa_0.2 <- mean(data$std_dev_MAODa_0.2)
+
+print(mean_std_dev_MAODa_0.2)
+
+data <- data %>%
+  group_by(id) %>%
+  mutate(std_dev_MAODa_0.2 = sd(MAOD.a) * 0.2)
+
+mean_std_dev_MAODa_0.2 <- mean(data$std_dev_MAODa_0.2, na.rm = TRUE)
+
+print(mean_std_dev_MAODa_0.2)
+
 ```
