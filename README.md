@@ -2,7 +2,7 @@
 
 På gruppa er
 
-Christian G Jenssen
-Marius Bjerkeset
-Olvier Bottolfs
-Sivert Solheim
+Christian G Jenssen,
+Marius Bjerkeset,
+Olvier Bottolfs,
+Sivert Solheim,
