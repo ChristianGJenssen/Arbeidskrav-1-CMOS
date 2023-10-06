@@ -1,9 +1,94 @@
 ---
-title: "testdoku"
+title: "Fysologisk testing arbeidskrav 1"
 format: html
 editor: visual
 ---
 
-## m
+## Arbeidskrav 1
 
-mi prøver enda
+```{r}
+
+```
+
+```{r}
+
+
+data <- read_excel("Fysologisk testing.xlsx")
+
+
+ggplot(data, aes(x = factor(timepoint), y = vo2max, fill = factor(timepoint))) +
+  geom_boxplot() +
+  labs(title = "Vo2max by Timepoint",
+       x = "Timepoint",
+       y = "vo2max") +
+  theme_minimal()
+theme(plot.title = element_text(hjust = 0.5)) +  # Justerer tittelens horisontale justering
+  ggtitle("Vo2max by Timepoint")
+
+```
+
+```{r}
+library(readxl)
+library(dplyr)
+
+data <- read_excel("Fysologisk testing.xlsx")
+
+
+summary_table <- data %>%
+  summarise(
+    Variabel = "Alder",
+    Gjennomsnitt = mean(age),
+    Standardavvik = sd(age),
+    Median = median(age),
+    Minimum = min(age),
+    Maksimum = max(age)
+  ) %>%
+  bind_rows(data %>%
+              summarise(
+                Variabel = "Bodyheight",
+                Gjennomsnitt = mean(bodyheight),
+                Standardavvik = sd(bodyheight),
+                Median = median(bodyheight),
+                Minimum = min(bodyheight),
+                Maksimum = max(bodyheight)
+              )) %>%
+  bind_rows(data %>%
+              summarise(
+                Variabel = "Vekt",
+                Gjennomsnitt = mean(vekt),
+                Standardavvik = sd(vekt),
+                Median = median(vekt),
+                Minimum = min(vekt),
+                Maksimum = max(vekt)
+              )) %>%
+  bind_rows(data %>%
+              summarise(
+                Variabel = "Vo2max",
+                Gjennomsnitt = mean(vo2max),
+                Standardavvik = sd(vo2max),
+                Median = median(vo2max),
+                Minimum = min(vo2max),
+                Maksimum = max(vo2max)
+              )) %>%
+  bind_rows(data %>%
+              summarise(
+                Variabel = "w.max",
+                Gjennomsnitt = mean(w.max),
+                Standardavvik = sd(w.max),
+                Median = median(w.max),
+                Minimum = min(w.max),
+                Maksimum = max(w.max)
+              )) %>%
+  bind_rows(data %>%
+              summarise(
+                Variabel = "MAOD.a",
+                Gjennomsnitt = mean(MAOD.a),
+                Standardavvik = sd(MAOD.a),
+                Median = median(MAOD.a),
+                Minimum = min(MAOD.a),
+                Maksimum = max(MAOD.a)
+              ))
+
+
+print(summary_table)
+```
