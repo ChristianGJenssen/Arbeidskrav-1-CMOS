@@ -2,15 +2,15 @@
 title: "Fysologisk testing arbeidskrav 1"
 format: html
 editor: visual
+echo: FALSE
 ---
 
 ## Arbeidskrav 1
 
 ```{r}
 library(ggplot2)
-
+library(readxl)
 data <- read_excel("Fysologisk testing.xlsx")
-
 
 ggplot(data, aes(x = factor(timepoint), y = vo2max, fill = factor(timepoint))) +
   geom_boxplot() +
@@ -18,9 +18,11 @@ ggplot(data, aes(x = factor(timepoint), y = vo2max, fill = factor(timepoint))) +
        x = "Timepoint",
        y = "vo2max") +
   theme_minimal() +
-theme(plot.title = element_text(hjust = 0.51)) +  # Justerer tittelens horisontale justering
-  ggtitle("Vo2max by Timepoint")
+theme(plot.title = element_text(hjust = 0.51)) +
+  
+  ggtitle("Vo2max by Timepoint") 
 
+echo=FALSE
 ```
 
 ```{r}
@@ -88,6 +90,10 @@ summary_table <- data %>%
 
 print(summary_table)
 ```
+
+
+jalla tekst
+
 
 ```{r} #Utreging av CV}
 
@@ -191,6 +197,9 @@ mean_std_dev_MAODa_0.2 <- mean(data$std_dev_MAODa_0.2, na.rm = TRUE)
 
 print(mean_std_dev_MAODa_0.2)
 ```
+
+
+caht tekst
 
 ```{r}
 library(readxl)
