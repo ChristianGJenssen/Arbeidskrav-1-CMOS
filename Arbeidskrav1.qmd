@@ -22,7 +22,6 @@ theme(plot.title = element_text(hjust = 0.51)) +
   
   ggtitle("Vo2max by Timepoint") 
 
-echo=FALSE
 ```
 
 ```{r}
@@ -90,6 +89,7 @@ summary_table <- data %>%
 
 print(summary_table)
 ```
+
 
 
 jalla tekst
@@ -233,7 +233,7 @@ for (i in 1:nrow(std_dev_by_id)) {
   std_dev_by_id$std_dev_vo2max[i] <- std_dev_by_id$std_dev_vo2max[i] * 0.2
 }
 
-std_dev_by_id$std_dev_vo2max_0.2 <- std_dev_by_id$std_dev_vo2max * 0.2  # Legg til kolonnen
+std_dev_by_id$std_dev_vo2max_0.2 <- std_dev_by_id$std_dev_vo2max * 0.2  
 
 mean_std_dev <- mean(std_dev_by_id$std_dev_vo2max)
 
