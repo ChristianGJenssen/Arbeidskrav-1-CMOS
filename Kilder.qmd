@@ -1,0 +1,19 @@
+---
+title: "Bibliografi"
+format: html
+editor: visual
+---
+
+## Bibliografi 
+
+Australian Institute of Sports, Tanner, R., Gore, C. (2012). Physiological Tests for Elite Athletes (2. utgave). Human Kinetics.
+
+Halperin, I., Pyne, D. B., & Martin, D. T. (2015). Threats to internal validity in exercise science: A review of overlooked confounding variables. International Journal of Sports Physiology and Performance. DOI: [https://doi.org/10.1123/ijspp.2014-0566](https://doi.org/10.1123/ijspp.2014-0566?fbclid=IwAR2PyKI5VFHddLyte9KKF8m7TixtqNd6nIhMHXGAv1fbJVVbVpkWyF6djBI)
+
+Microsoft. (2023). Microsoft Excel (versjon 16.73) \[Computer software\]. Microsoft Corporation.
+
+RStudio Team. (2023). RStudio: Integrated Development Environment for R (Version 2023.06.2+561) \[Computer software\]. RStudio, PBC. <https://www.rstudio.com/>
+
+Hopkins, W. G. (2000). Measures of Reliability in Sports Medicine and Science. Sports Medicine.
+
+Hopkins, W. G. (2004). How to interpret changes in an athletic performance test. Sportscience, 8, 1--7. [http://www.sportsci.org/jour/04/wghtests.htm](http://www.sportsci.org/jour/04/wghtests.htm?fbclid=IwAR1e8fpORqebAW9hSx2Sq2_ikoWnqdoHSx2ijU95_gAIkKrxLbTkX2iTgoY)
