@@ -18,7 +18,6 @@ library(readxl)
 library(tibble)
 library(tidyr)
 library(tidyverse)
-library(gt)
 ```
 
 **Forberedelser**
@@ -65,10 +64,13 @@ VO2maks (ml/min) ble regnet ut ved å finne gjennomsnittet av målingene de to s
 
 Før vi utførte statistiske analyser, ble datasettet rengjort for eventuelle feilregistreringer eller manglende data. Statistiske analyser ble utført i programvaren RStudio (versjon 2023.06.2+561; RStudio Team, 2023), og ble organisert i Microsoft Excel (versjon 16.73, Microsoft Corporation, 2023). Deskriptiv statistikk er presentert som gjennomsnitt, standardavvik og minimums- og maksimumsverdi. Basert på anbefalingene fra Hopkins (2012) benyttet vi variasjonskoeffisient (CV %) for å undersøke test-retest reliabiliteten til følgende tester: VO2-maks, Wmaks og MAOD.a. Dårlig reliabilitet ble ansett som CV \> 10 %, akseptabel reliabilitet ble ansett som CV = 5--10 % og god reliabilitet ble ansett som CV \< 5 % (Cronin et al., 2004; Taylor et al., 2010). For å videre undersøke om testene var reliable nok til å observere betydningsfulle forskjeller anvendte vi minste betydningsfulle forskjell (SWC). Beregningen av SWC ble gjort i henhold til Hopkins et al. (2009). Når CV % ≤ SWC, ble testen ansett i stand til å oppdage betydningsfulle forskjeller (Hopkins, 2004).
 
+
+## Resultater
+
+Deskriptiv statistikk av forsøkspersonenes VO2-maks, Wmaks og MAOD.a ved T1 og T2 er presentert i Tabell 1. I tillegg er en boksplott, som viser test-retest reliabiliteten til VO2-maks, Wmaks og MAOD.a, illustrert i Figur 1. Det ble funnet god test-retest reliabilitet for VO2-maks og Wmaks (CV = 1,84 og 4,77, henholdsvis), samt akseptabel test-retest reliabilitet for MAOD.a testen (CV = 6,77). Videre ble det observert at VO2-maks testen var reliabel nok til å oppdage betydningsfulle forskjeller i VO2-maks (SWC = 3,67). På tross av å ha vist henholdsvis god og akseptabel test-restest reliabilitet, ble det funnet at Wmaks og MAOD.a testen ikke var reliable nok til å observere betydningsfulle forskjeller i Wmaks og MAOD.a (SWC = 4,04 og 0,88, henholdsvis).
+
 ```{r}
 #| echo: false
-
-options(tibble.print_max = Inf, tibble.print_min = Inf)
 
 data <- read_excel("Fysologisk testing.xlsx")
 
@@ -88,7 +90,6 @@ theme(plot.title = element_text(hjust = 0.51)) +
 ```{r}
 #| echo: false
 
-options(tibble.print_max = Inf, tibble.print_min = Inf)
 
 data <- read_excel("Fysologisk testing.xlsx")
 
@@ -153,9 +154,6 @@ print(summary_table)
 
 ------------------------------------------------------------------------
 
-jalla tekst
-
-Denne skal regne ut CV bare er en ny kode
 
 ```{r}
 #| echo: false
@@ -234,9 +232,7 @@ if (nrow(data) > 0) {
 
 ```
 
-**Resultater**
 
-Deskriptiv statistikk av forsøkspersonenes VO2-maks, Wmaks og MAOD.a ved T1 og T2 er presentert i Tabell 1. I tillegg er en boksplott, som viser test-retest reliabiliteten til VO2-maks, Wmaks og MAOD.a, illustrert i Figur 1. Det ble funnet god test-retest reliabilitet for VO2-maks og Wmaks (CV = 1,84 og 4,77, henholdsvis), samt akseptabel test-retest reliabilitet for MAOD.a testen (CV = 6,77). Videre ble det observert at VO2-maks testen var reliabel nok til å oppdage betydningsfulle forskjeller i VO2-maks (SWC = 3,67). På tross av å ha vist henholdsvis god og akseptabel test-restest reliabilitet, ble det funnet at Wmaks og MAOD.a testen ikke var reliable nok til å observere betydningsfulle forskjeller i Wmaks og MAOD.a (SWC = 4,04 og 0,88, henholdsvis).
 
 ```{r}
 #| echo: false
@@ -245,7 +241,7 @@ Deskriptiv statistikk av forsøkspersonenes VO2-maks, Wmaks og MAOD.a ved T1 og 
 data <- read_excel("Fysologisk testing.xlsx")
 
 suppressWarnings({
-  # Your code that generates warnings
+  
   cv_results <- data %>%
     group_by(id) %>%
     summarize(cv_vo2max = sd(vo2max, na.rm = TRUE) / mean(vo2max, na.rm = TRUE) * 100)
@@ -321,6 +317,8 @@ rownames(result_table) <- NULL
 
 colnames(result_table) <- c("Variable", "Mean Coef. of Variation (0.2)", "Mean Std. Deviation (0.2)")
 })
+
+
 print(result_table)
 
 ```
