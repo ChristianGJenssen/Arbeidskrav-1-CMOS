@@ -1,19 +1,74 @@
 ---
-title: "Fysologisk testing arbeidskrav 1"
+title: "Fysologisk testing"
+subtitle: "arbeidskrav 1"
 format: html
 editor: visual
+author: Christian G. Jenssen, Marius Bjekeset, Oliver Bottolfs, Sivert Solheim
 ---
 
 ## Arbeidskrav 1
 
-```{r} 
+```{r}
+#| echo: false
+#| message: false
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(readxl)
+library(tibble)
+library(tidyr)
+library(tidyverse)
+library(gt)
+```
+
+**Forberedelser**
+
+Forberedelser til utholdenhetstester involverte flere trinn. Først ble hansker tatt på for å sikre hygiene og komfort under testene. Deretter ble utstyret kalibrert. Dette inkluderte justering av temperatur og luftfuktighet ved hjelp av enhetens kontroller. For å gjøre dette, ble "Ambient Conditions" valgt, og temperaturen og luftfuktigheten ble sjekket på gradestokken. Eventuelle justeringer ble gjort ved å trykke "F1" for å endre luftfuktighet og temperatur, og deretter trykke "F12" for å lagre endringene.
+
+Videre ble volumkalibrering utført ved å sette inn "Trippel V" og koble til "Sample line". En slange ble deretter festet fra Oxycon´s miksekammer´s bakside til volumkalibreringspumpen. "Volume Calibration" ble valgt, og kalibreringen ble startet ved å trykke "F1". Spaken på pumpen ble beveget forsiktig frem og tilbake til grafene på skjermen flatet ut på omtrent 4 på y-aksen. Det ble pumpet frem til tallene ble vist i høyre margen. Deretter ble verdiene for oksygen (O2) og karbondioksid (CO2) sjekket. Kalibreringen ble ansett som vellykket hvis feilmarginen var innenfor 1,0 %, noe som tilsvarer et område mellom 99,0 og 101,0. Hvis kalibreringen ikke ble godkjent, ble den gjentatt ved å trykke "F9". Hvis den ble godkjent, ble resultatene lagret ved å trykke "F12".
+
+Gasskalibrering var neste skritt. "GAS Calibration" ble valgt, og gassflasken ble åpnet i riktig retning. "F1" ble trykket, og kalibreringen fortsatte til tallene viste seg i høyre marg. Igjen ble verdiene for oksygen (O2) og karbondioksid (CO2) sjekket. Kalibreringen ble ansett som godkjent hvis tallene var innenfor en feilmargin på 1,0, noe som tilsvarer et område mellom --1,0 og 1,0. Gassflasken ble deretter lukket i riktig retning, og hvis kalibreringen ikke var godkjent, kunne den gjentas ved å trykke "F9". Hvis den var godkjent, ble resultatene lagret ved å trykke "F12".
+
+Alle forberedelsene for testen ble grundig gjennomført før selve testingen startet. Først ble munnstykket satt sammen, og neseklypen ble funnet frem. Det ble kontrollert at slangen hadde riktig lengde og at den ikke var defekt. Neseklype og teip ble klargjort for bruk. Deretter ble forsøkspersonen veid uten sko og med så lite klær som mulig. Etter veiingen ble 300 g trukket fra vekten som følge av klærnes vekt. Forsøkspersonens data ble deretter lagt inn i systemet ved å trykke på "New Patient". Her ble prosjektnavn, ID-nummer, fødselsdato, kjønn, høyde og vekt (hvor 300 g ble trukket fra) ført inn. Videre ble «Lode Device Manager 10» startet, og sykkelen ble nøye justert for forsøkspersonen. Dette inkluderte å bytte til riktig pedal og notere ned disse justeringene. Krankarmen ble stilt inn til 172,5 og strammet svært godt. Kalibreringen av krankarmene ble utført, og setets lengde og høyde, samt styrets lengde og høyde, ble justert og målt nøye. Disse innstillingene ble deretter lagret.
+
+Sluttforberedelsene inkluderte å feste den ene enden av slangen til munnstykket og den andre enden til maskinen, med slangen teipet fast til sykkelen. Forsøkspersonen ble bedt om å feste en teipbit på nesen. Til slutt ble VO2-opptaket klargjort ved å trykke på "Mixing Chamber". Det ble dobbeltsjekket at innstillingene viste "small mouthpiece" og "30 s delta time" i det oppgitte vinduet, og deretter ble klargjøringen fullført ved å trykke "ok". Ved å trykke "F1" ble opptaket klargjort, og etter 15 s var maskinen klar for selve testen.
+
+**Før testingen**
+
+Før testen startet, ble forsøkspersonene informert om testprosedyren. De ble instruert om å gjennomføre hele testen sittende, og det ble festet en teipbit på nesen deres for å sikre at neseklipsen ikke falt av. Forsøkspersonen tilpasset sykkelen og setestillingen med hjelp fra testlederen, og denne setestillingen ble notert for bruk på neste testdag. Deretter klatret forsøkspersonen opp på sykkelen og festet skoene til pedalene. Temperaturen og luftfuktigheten i rommet ble også notert.
+
+**Submaksimal utholdenhetstest**
+
+Testprosedyren startet med en submaksimal utholdenhetstest der forsøkspersonene tråkket på 75 W for kvinner og 100 W for menn ved en tråkkfrekvens på 90 ± 5 RPM i 90 s. Forsøkspersonene ble informert om å ta på neseklype og munnstykke 30 s før målingene begynte. Oksygenopptaket ble deretter målt hvert 30. sekund fra 2 til 4 min. 20 s før de 4 minuttene var ferdige, ble forsøkspersonene bedt om å vurdere sin egen tilstand på Borgs skala. Etter 4 min økte motstanden til 125 W for kvinner og 150 W for menn, og neseklypen og munnstykket ble fjernet. Forsøkspersonene informerte om hvor de lå på Borgs skala, og denne prosessen ble gjentatt på neste trinn. Forsøkspersonene fikk deretter en 2 min aktiv pause på 50 W og ble bedt om å forbli sittende på sykkelen gjennom hele den aktive pausen.
+
+**Maksimalt oksygenopptak (VO2-maks) test**
+
+Etter submaksimal utholdenhetstest fulgte VO2-maks testing, som startet på 150 W og økte med 25 W hvert min til utmattelse. Utmattelse ble definert som når forsøkspersonene ikke lenger klarte å opprettholde en tråkkfrekvens på \> 60 RPM. Det var fri tråkkfrekvens på begge testdagene, og forsøkspersonene hadde neseklype og munnstykke gjennom hele testen. Klokken ble nullstilt etter en 5 minutters pause når opptaket viste et helt minutt pluss 1 sekund. Forsøkspersonene fikk beskjed om å sykle til utmattelse (dvs. RPM \< 60), og verbal kommunikasjon ble benyttet for å informere dem underveis. Watt-maks og sekundene siden siste økning ble notert, og forsøkspersonene ble spurt om deres opplevde anstrengelsesnivå på Borgs RPE-skala umiddelbart etter fullført test. Etter testen forlot ikke forsøkspersonene sykkelen, og opptaket ble lagret ved å trykke "F1" til en gul firkant dukket opp i øvre venstre hjørne, deretter "F12" for å lagre opptaket. All data fra de to høyeste målingene ble notert.
+
+**Maximum accumulated oxygen uptake (MAOD) test**
+
+Etter VO2-maks testing, gjennomførte forsøkspersonene en Maximum Accumulated Oxygen Uptake (MAOD) test. De syklet på 50 W for menn og kvinner i fem min før MAOD-testen startet. MAOD-testen involverte at forsøkspersonene syklet så lenge de kunne ved den høyeste effekten (W) de oppnådde i minst 30 s under VO2-maks testing. De ble instruert om å opprettholde samme tråkkfrekvens som under den submaksimale testen. Testlederen ga verbal oppmuntring når forsøkspersonene viste tegn til utmattelse. Testen ble avsluttet når forsøkspersonene ikke lenger kunne opprettholde en tråkkfrekvens på \> 60 RPM. Forsøkspersonene ble spurt om deres opplevde anstrengelsesnivå på Borgs skala umiddelbart etter avsluttet test.
+
+**Etter testingen**
+
+Etter testingen ble alt utstyr desinfisert og ryddet opp. Eventuelle endringer i sykkelinnstillinger ble også notert. Til slutt ble dataene notert ned ved å gå inn på skjermrapporten "Hil_MIX_30." Tiltak for å sikre reliabilitet For å sikre reliabilitet ble det gjennomført en rekke tiltak under testprosedyren. Testene ble gjennomført på nøyaktig samme måte hver gang, med standardisering av alle faktorer, til det beste av vår kunnskap, som kunne påvirke resultatene. Testene ble utført til samme tidspunkt på døgnet. Videre ble det lagt vekt på å opprettholde tilnærmet lik luftfuktighet og temperatur i testrommet, med nøye notering av disse forholdene. Da det gjaldt kalibrering av utstyret, ble det benyttet samme utstyr på begge testdagene. Det ble også påsett at de samme vektskivene ble brukt på både testdag 1 og testdag 2. For å sikre nøyaktige data av kroppsvekt, veide forsøkspersonene seg med så lite klær som mulig, uten sko, og det ble trukket fra 300 g fra vekten som følge av klær. Dette ble gjentatt eksakt likt på begge testdagene.
+
+Under testingen ble hele prosedyren gjennomført sittende, og forsøkspersonene ble plassert i samme sittestilling. For å opprettholde standardisering ble det ikke spilt musikk under testen. Det var også viktig å ha kontinuitet med hensyn til testledere og observatører, så de samme personene ble benyttet på begge testdagene. Videre ble forsøkspersonene instruert til å ha to dagers restitusjonstid mellom testdag 1 og testdag 2 for å minimere eventuelle påvirkninger fra tidligere testing. Testlederne opplyste ikke om VO2-maks nivået under selve testen, og den samme testlederen ble brukt på begge testdagene. Testlederne fulgte protokollen på samme måte, og det ble lagt vekt på å gi tilnærmet lik tilbakemelding og engasjement. Under VO2maks-testen ble tilbakemeldingen gradvis økt utover testen for å motivere forsøkspersonene til sitt ytterste. Det ble også notert hvor mye og når forsøkspersonene hadde spist før testdag 1, og dette ble gjentatt på testdag 2. Spesielt var det viktig å sikre inntak av energirik mat og drikke. Dette er en rekke viktige tiltak for å sikre høy reliabilitet i fysiologisk testing (Halperin, I., Pyne, D. B., & Martin, D. T, 2015).
+
+Forsøkspersonene fikk klare retningslinjer, inkludert å avstå fra hard fysisk trening de siste 48 timene før testing, opprettholde tilnærmet lik fysisk aktivitet og døgnrytme de siste 48 timene før de to testdagene. I tillegg ble de instruert om å unngå inntak av nikotin og/eller alkohol de siste 48 timene før testing. Inntak av koffein på testdagene ble også regulert for å sikre lik mengde. Forsøkspersonene ble instruert om å ha samme type og mengde mat og drikke samme dag som testen, med siste måltid minst 2 timer før testing. Det var også krav om å bruke samme klær og sko på begge testdagene for å minimere variabler som kunne påvirke resultatene. Disse tiltakene ble nøye implementert for å sikre pålitelige og sammenlignbare resultater mellom de to testdagene.
+
+**Databehandling**
+
+VO2maks (ml/min) ble regnet ut ved å finne gjennomsnittet av målingene de to siste hele halvminuttene under VO2maks-testen. Maksimalt akkumulert oksygenunderskudd (MAOD) ble regnet ut med data fra både den submaksimale testen og MAOD-testen ved hjelp av en formel hentet fra boken Physiological Tests for Elite Athletes 2nd Edition (Australian Institute of Sports et al., 2012, s. 66). Statistiske analyser Før vi utførte statistiske analyser, ble datasettet rengjort for eventuelle feilregistreringer eller manglende data. Statistiske analyser ble utført i programvaren RStudio (versjon 2023.06.2+561; RStudio Team, 2023), og ble organisert i Microsoft Excel (versjon 16.73, Microsoft Corporation, 2023). Deskriptiv statistikk er presentert som gjennomsnitt, standardavvik og minimums- og maksimumsverdi. Basert på anbefalingene fra Hopkins (2012) benyttet vi variasjonskoeffisient (CV %) for å undersøke test-retest reliabiliteten til følgende tester: VO2-maks, Wmaks og MAOD.a. Dårlig reliabilitet ble ansett som CV \> 10 %, akseptabel reliabilitet ble ansett som CV = 5--10 % og god reliabilitet ble ansett som CV \< 5 % (Cronin et al., 2004; Taylor et al., 2010). For å videre undersøke om testene var reliable nok til å observere betydningsfulle forskjeller anvendte vi minste betydningsfulle forskjell (SWC). Beregningen av SWC ble gjort i henhold til Hopkins et al. (2009). Når CV % ≤ SWC, ble testen ansett i stand til å oppdage betydningsfulle forskjeller (Hopkins, 2004).
+
+**Statistiske analyser**
+
+Før vi utførte statistiske analyser, ble datasettet rengjort for eventuelle feilregistreringer eller manglende data. Statistiske analyser ble utført i programvaren RStudio (versjon 2023.06.2+561; RStudio Team, 2023), og ble organisert i Microsoft Excel (versjon 16.73, Microsoft Corporation, 2023). Deskriptiv statistikk er presentert som gjennomsnitt, standardavvik og minimums- og maksimumsverdi. Basert på anbefalingene fra Hopkins (2012) benyttet vi variasjonskoeffisient (CV %) for å undersøke test-retest reliabiliteten til følgende tester: VO2-maks, Wmaks og MAOD.a. Dårlig reliabilitet ble ansett som CV \> 10 %, akseptabel reliabilitet ble ansett som CV = 5--10 % og god reliabilitet ble ansett som CV \< 5 % (Cronin et al., 2004; Taylor et al., 2010). For å videre undersøke om testene var reliable nok til å observere betydningsfulle forskjeller anvendte vi minste betydningsfulle forskjell (SWC). Beregningen av SWC ble gjort i henhold til Hopkins et al. (2009). Når CV % ≤ SWC, ble testen ansett i stand til å oppdage betydningsfulle forskjeller (Hopkins, 2004).
+
+```{r}
 #| echo: false
 
-library(ggplot2)
-library(readxl)
-library(knitr)
-library(dplyr)
-
+options(tibble.print_max = Inf, tibble.print_min = Inf)
 
 data <- read_excel("Fysologisk testing.xlsx")
 
@@ -28,14 +83,14 @@ theme(plot.title = element_text(hjust = 0.51)) +
   ggtitle("Vo2max by Timepoint") 
 ```
 
+------------------------------------------------------------------------
+
 ```{r}
 #| echo: false
 
-library(readxl)
-library(dplyr)
+options(tibble.print_max = Inf, tibble.print_min = Inf)
 
 data <- read_excel("Fysologisk testing.xlsx")
-
 
 summary_table <- data %>%
   summarise(
@@ -47,281 +102,131 @@ summary_table <- data %>%
     Maksimum = max(age)
   ) %>%
   bind_rows(data %>%
-              summarise(
-                Variabel = "Bodyheight",
-                Gjennomsnitt = mean(bodyheight),
-                Standardavvik = sd(bodyheight),
-                Median = median(bodyheight),
-                Minimum = min(bodyheight),
-                Maksimum = max(bodyheight)
-              )) %>%
+    summarise(
+      Variabel = "Bodyheight",
+      Gjennomsnitt = mean(bodyheight),
+      Standardavvik = sd(bodyheight),
+      Median = median(bodyheight),
+      Minimum = min(bodyheight),
+      Maksimum = max(bodyheight)
+    )) %>%
   bind_rows(data %>%
-              summarise(
-                Variabel = "Vekt",
-                Gjennomsnitt = mean(vekt),
-                Standardavvik = sd(vekt),
-                Median = median(vekt),
-                Minimum = min(vekt),
-                Maksimum = max(vekt)
-              )) %>%
+    summarise(
+      Variabel = "Vekt",
+      Gjennomsnitt = mean(vekt),
+      Standardavvik = sd(vekt),
+      Median = median(vekt),
+      Minimum = min(vekt),
+      Maksimum = max(vekt)
+    )) %>%
   bind_rows(data %>%
-              summarise(
-                Variabel = "Vo2max",
-                Gjennomsnitt = mean(vo2max),
-                Standardavvik = sd(vo2max),
-                Median = median(vo2max),
-                Minimum = min(vo2max),
-                Maksimum = max(vo2max)
-              )) %>%
+    summarise(
+      Variabel = "Vo2max",
+      Gjennomsnitt = mean(vo2max),
+      Standardavvik = sd(vo2max),
+      Median = median(vo2max),
+      Minimum = min(vo2max),
+      Maksimum = max(vo2max)
+    )) %>%
   bind_rows(data %>%
-              summarise(
-                Variabel = "w.max",
-                Gjennomsnitt = mean(w.max),
-                Standardavvik = sd(w.max),
-                Median = median(w.max),
-                Minimum = min(w.max),
-                Maksimum = max(w.max)
-              )) %>%
+    summarise(
+      Variabel = "w.max",
+      Gjennomsnitt = mean(w.max),
+      Standardavvik = sd(w.max),
+      Median = median(w.max),
+      Minimum = min(w.max),
+      Maksimum = max(w.max)
+    )) %>%
   bind_rows(data %>%
-              summarise(
-                Variabel = "MAOD.a",
-                Gjennomsnitt = mean(MAOD.a),
-                Standardavvik = sd(MAOD.a),
-                Median = median(MAOD.a),
-                Minimum = min(MAOD.a),
-                Maksimum = max(MAOD.a)
-              ))
+    summarise(
+      Variabel = "MAOD.a",
+      Gjennomsnitt = mean(MAOD.a),
+      Standardavvik = sd(MAOD.a),
+      Median = median(MAOD.a),
+      Minimum = min(MAOD.a),
+      Maksimum = max(MAOD.a)
+    ))
 
-echo = FALSE
 print(summary_table)
+
 ```
 
-
+------------------------------------------------------------------------
 
 jalla tekst
-```{r} #UTreging av CV}
-# Utrenging av CV
 
-library(readxl)
-library(dplyr)
-
-data <- read_excel("Fysologisk testing.xlsx")
-
-cv_results <- data %>%
-  group_by(id) %>%
-  summarize(cv_vo2max = sd(vo2max, na.rm = TRUE) / mean(vo2max, na.rm = TRUE) * 100)
-
-print(cv_results)
-
-mean_cv <- mean(cv_results$cv_vo2max, na.rm = TRUE)
-
-print(mean_cv)
-
-cv_wmax_results <- data %>%
-  group_by(id) %>%
-  summarize(cv_wmax = sd(w.max, na.rm = TRUE) / mean(w.max, na.rm = TRUE) * 100)
-
-mean_cv_wmax <- mean(cv_wmax_results$cv_wmax, na.rm = TRUE)
-
-print(cv_wmax_results)
-
-print(mean_cv_wmax)
-
-cv_maoda_results <- data %>%
-  group_by(id) %>%
-  summarize(cv_maoda = sd(MAOD.a, na.rm = TRUE) / mean(MAOD.a, na.rm = TRUE) * 100)
-
-mean_cv_maoda <- mean(cv_maoda_results$cv_maoda, na.rm = TRUE)
-
-print(cv_maoda_results)
-
-print(mean_cv_maoda)
-
-std_dev_by_id <- data %>%
-  group_by(id) %>%
-  summarize(std_dev_vo2max = sd(vo2max))
-
-for (i in 1:nrow(std_dev_by_id)) {
-  std_dev_by_id$std_dev_vo2max[i] <- std_dev_by_id$std_dev_vo2max[i] * 0.2
-}
-print(std_dev_by_id)
-
-mean_std_dev <- mean(std_dev_by_id$std_dev_vo2max)
-
-print(mean_std_dev)
-print(std_dev_by_id)
-
-mean_std_dev_0.2 <- mean(std_dev_by_id$std_dev_vo2max_0.2)
-
-print(mean_std_dev_0.2)
-
-if ("std_dev_vo2max_0.2" %in% colnames(std_dev_by_id)) {
-
-  mean_std_dev_0.2 <- mean(std_dev_by_id$std_dev_vo2max_0.2)
-  
-  print(mean_std_dev_0.2)
-} else {
-  print("Kolonnen std_dev_vo2max_0.2 eksisterer ikke i dataframen.")
-}
-
-std_dev_wmax_by_id <- aggregate(data$w.max, by = list(data$id), FUN = function(x) sd(x) * 0.2)
-
-colnames(std_dev_wmax_by_id) <- c("ID", "std_dev_wmax_0.2")
-
-print(std_dev_wmax_by_id)
-
-mean_std_dev_wmax_0.2 <- mean(std_dev_wmax_by_id$std_dev_wmax_0.2)
-
-print(mean_std_dev_wmax_0.2)
-
-std_dev_maod_a_by_id <- aggregate(data$MAOD.a, by = list(data$id), FUN = function(x) sd(x) * 0.2)
-
-colnames(std_dev_maod_a_by_id) <- c("ID", "std_dev_MAODa_0.2")
-
-print(std_dev_maod_a_by_id)
-
-mean_std_dev_MAODa_0.2 <- mean(std_dev_MAODa_by_id$std_dev_MAODa_0.2)
-
-print(mean_std_dev_MAODa_0.2)
-
-mean_std_dev_MAOD_a_by_id <- mean(data$std_dev_MAODa_0.2, na.rm = TRUE)
-
-data <- na.omit(data)
-
-mean_std_dev_MAODa_0.2 <- mean(data$std_dev_MAODa_0.2, na.rm = TRUE)
-
-print(mean_std_dev_MAODa_0.2)
-
-data <- data %>%
-  group_by(id) %>%
-  mutate(std_dev_MAODa_0.2 = sd(MAOD.a) * 0.2)
-
-mean_std_dev_MAODa_0.2 <- mean(data$std_dev_MAODa_0.2, na.rm = TRUE)
-
-print(mean_std_dev_MAODa_0.2)
-
-```
 Denne skal regne ut CV bare er en ny kode
-```{r}
-# Utrenging av CV
 
-library(readxl)
-library(dplyr)
+```{r}
+#| echo: false
 
 data <- read_excel("Fysologisk testing.xlsx")
 
-# Calculate CV for vo2max
-cv_results <- data %>%
+cv_results_vo2max <- data %>%
   group_by(id) %>%
   summarize(cv_vo2max = sd(vo2max, na.rm = TRUE) / mean(vo2max, na.rm = TRUE) * 100)
 
-print(cv_results)
-
-mean_cv <- mean(cv_results$cv_vo2max, na.rm = TRUE)
-
-print(mean_cv)
-
-# Calculate CV for w.max
-cv_wmax_results <- data %>%
+cv_results_wmax <- data %>%
   group_by(id) %>%
   summarize(cv_wmax = sd(w.max, na.rm = TRUE) / mean(w.max, na.rm = TRUE) * 100)
 
-print(cv_wmax_results)
-
-mean_cv_wmax <- mean(cv_wmax_results$cv_wmax, na.rm = TRUE)
-
-print(mean_cv_wmax)
-
-# Calculate CV for MAOD.a
-cv_maoda_results <- data %>%
+cv_results_maoda <- data %>%
   group_by(id) %>%
   summarize(cv_maoda = sd(MAOD.a, na.rm = TRUE) / mean(MAOD.a, na.rm = TRUE) * 100)
 
-print(cv_maoda_results)
-
-mean_cv_maoda <- mean(cv_maoda_results$cv_maoda, na.rm = TRUE)
-
-print(mean_cv_maoda)
-
-# Calculate adjusted standard deviation for vo2max
 std_dev_by_id <- data %>%
   group_by(id) %>%
-  summarize(std_dev_vo2max = sd(vo2max))
+  summarize(std_dev_vo2max = sd(vo2max) * 0.2)
 
-for (i in 1:nrow(std_dev_by_id)) {
-  std_dev_by_id$std_dev_vo2max[i] <- std_dev_by_id$std_dev_vo2max[i] * 0.2
-}
+std_dev_wmax_by_id <- data %>%
+  group_by(id) %>%
+  summarize(std_dev_wmax = sd(w.max) * 0.2)
 
-print(std_dev_by_id)
+std_dev_maoda_by_id <- data %>%
+  group_by(id) %>%
+  summarize(std_dev_MAODa = sd(MAOD.a) * 0.2)
 
-mean_std_dev <- mean(std_dev_by_id$std_dev_vo2max, na.rm = TRUE)
+summary_table <- tibble(
+  id = cv_results_vo2max$id,
+  cv_vo2max = cv_results_vo2max$cv_vo2max,
+  cv_wmax = cv_results_wmax$cv_wmax,
+  cv_maoda = cv_results_maoda$cv_maoda,
+  std_dev_vo2max = std_dev_by_id$std_dev_vo2max,
+  std_dev_wmax = std_dev_wmax_by_id$std_dev_wmax,
+  std_dev_MAODa = std_dev_maoda_by_id$std_dev_MAODa
+)
 
-print(mean_std_dev)
-print(std_dev_by_id)
-
-# Check for the existence of the column std_dev_vo2max_0.2
-if ("std_dev_vo2max_0.2" %in% colnames(std_dev_by_id)) {
-  mean_std_dev_0.2 <- mean(std_dev_by_id$std_dev_vo2max_0.2, na.rm = TRUE)
-  print(mean_std_dev_0.2)
+if ("std_dev_MAODa" %in% colnames(summary_table)) {
+  mean_std_dev_MAODa_data <- mean(summary_table$std_dev_MAODa, na.rm = TRUE)
 } else {
-  print("Kolonnen std_dev_vo2max_0.2 eksisterer ikke i dataframen.")
+  mean_std_dev_MAODa_data <- "Kolonnen std_dev_MAODa eksisterer ikke i dataframen."
 }
 
-# Calculate adjusted standard deviation for w.max
-std_dev_wmax_by_id <- aggregate(data$w.max, by = list(data$id), FUN = function(x) sd(x) * 0.2)
-
-colnames(std_dev_wmax_by_id) <- c("ID", "std_dev_wmax_0.2")
-
-print(std_dev_wmax_by_id)
-
-mean_std_dev_wmax_0.2 <- mean(std_dev_wmax_by_id$std_dev_wmax_0.2, na.rm = TRUE)
-
-print(mean_std_dev_wmax_0.2)
-
-# Calculate adjusted standard deviation for MAOD.a
-std_dev_maod_a_by_id <- aggregate(data$MAOD.a, by = list(data$id), FUN = function(x) sd(x) * 0.2)
-
-colnames(std_dev_maod_a_by_id) <- c("ID", "std_dev_MAODa_0.2")
-
-print(std_dev_maod_a_by_id)
-
-mean_std_dev_MAODa_0.2 <- mean(std_dev_maod_a_by_id$std_dev_MAODa_0.2, na.rm = TRUE)
-
-print(mean_std_dev_MAODa_0.2)
-
-# Calculate mean of adjusted standard deviation for MAOD.a
-if ("std_dev_MAODa_0.2" %in% colnames(data)) {
-  mean_std_dev_MAODa_0.2_data <- mean(data$std_dev_MAODa_0.2, na.rm = TRUE)
-  print(mean_std_dev_MAODa_0.2_data)
-} else {
-  print("Kolonnen std_dev_MAODa_0.2 eksisterer ikke i dataframen.")
-}
+print(summary_table)
 
 ```
+
+------------------------------------------------------------------------
 
 Denne lager tabell
-```{r}
-# Last inn readxl-pakken for å lese Excel-filer
-library(readxl)
 
-# Les data fra Excel-filen
+```{r}
+#| echo: false
+
 data <- read_excel("Fysologisk testing.xlsx")
 
-# Funksjon for beregning av CV
 calculate_cv <- function(x) {
   cv <- sd(x) / mean(x)
   return(cv)
 }
 
-# Fjern rader med manglende verdier i rpe.max, vo2max og MAOD.a
-data <- na.omit(data[, c("id", "rpe.max", "vo2max", "MAOD.a")])
+data <- na.omit(data[, c("id", "vo2max", "MAOD.a")])
 
-# Sjekk om det er data tilgjengelig
 if (nrow(data) > 0) {
-  # Grupper data etter id og beregn CV for rpe.max, vo2max og MAOD.a
+ 
   cv_data <- aggregate(. ~ id, data=data, FUN=calculate_cv)
   
-  # Print resultatene
+
   print(cv_data)
 } else {
   cat("Ingen data tilgjengelig for beregning av CV.")
@@ -329,19 +234,22 @@ if (nrow(data) > 0) {
 
 ```
 
+**Resultater**
 
-
-
-
-caht tekst
+Deskriptiv statistikk av forsøkspersonenes VO2-maks, Wmaks og MAOD.a ved T1 og T2 er presentert i Tabell 1. I tillegg er en boksplott, som viser test-retest reliabiliteten til VO2-maks, Wmaks og MAOD.a, illustrert i Figur 1. Det ble funnet god test-retest reliabilitet for VO2-maks og Wmaks (CV = 1,84 og 4,77, henholdsvis), samt akseptabel test-retest reliabilitet for MAOD.a testen (CV = 6,77). Videre ble det observert at VO2-maks testen var reliabel nok til å oppdage betydningsfulle forskjeller i VO2-maks (SWC = 3,67). På tross av å ha vist henholdsvis god og akseptabel test-restest reliabilitet, ble det funnet at Wmaks og MAOD.a testen ikke var reliable nok til å observere betydningsfulle forskjeller i Wmaks og MAOD.a (SWC = 4,04 og 0,88, henholdsvis).
 
 ```{r}
 #| echo: false
 
-library(readxl)
-library(dplyr)
 
 data <- read_excel("Fysologisk testing.xlsx")
+
+suppressWarnings({
+  # Your code that generates warnings
+  cv_results <- data %>%
+    group_by(id) %>%
+    summarize(cv_vo2max = sd(vo2max, na.rm = TRUE) / mean(vo2max, na.rm = TRUE) * 100)
+
 
 cv_results <- data %>%
   group_by(id) %>%
@@ -412,160 +320,13 @@ result_table <- result_table[!(result_table$Variable %in% c("MAOD.a (after NA re
 rownames(result_table) <- NULL
 
 colnames(result_table) <- c("Variable", "Mean Coef. of Variation (0.2)", "Mean Std. Deviation (0.2)")
-
+})
 print(result_table)
 
 ```
 
-```{r}
-#| echo: false
+------------------------------------------------------------------------
 
-library(readxl)
-library(knitr)
-library(dplyr)
+**METODISK DISKUSJON**
 
-data <- read_excel("Fysologisk testing.xlsx")
-
-
-cv_results <- data %>%
-  group_by(id) %>%
-  summarize(cv_vo2max = sd(vo2max, na.rm = TRUE) / mean(vo2max, na.rm = TRUE) * 100)
-
-print(cv_results)
-
-mean_cv <- mean(cv_results$cv_vo2max, na.rm = TRUE)
-
-print(mean_cv)
-
-cv_wmax_results <- data %>%
-  group_by(id) %>%
-  summarize(cv_wmax = sd(w.max, na.rm = TRUE) / mean(w.max, na.rm = TRUE) * 100)
-
-mean_cv_wmax <- mean(cv_wmax_results$cv_wmax, na.rm = TRUE)
-
-print(cv_wmax_results)
-
-print(mean_cv_wmax)
-
-cv_maoda_results <- data %>%
-  group_by(id) %>%
-  summarize(cv_maoda = sd(MAOD.a, na.rm = TRUE) / mean(MAOD.a, na.rm = TRUE) * 100)
-
-mean_cv_maoda <- mean(cv_maoda_results$cv_maoda, na.rm = TRUE)
-
-print(cv_maoda_results)
-
-print(mean_cv_maoda)
-
-std_dev_by_id <- data %>%
-  group_by(id) %>%
-  summarize(std_dev_vo2max = sd(vo2max))
-
-for (i in 1:nrow(std_dev_by_id)) {
-  std_dev_by_id$std_dev_vo2max[i] <- std_dev_by_id$std_dev_vo2max[i] * 0.2
-}
-
-# Create a new column std_dev_vo2max_0.2
-std_dev_by_id$std_dev_vo2max_0.2 <- std_dev_by_id$std_dev_vo2max * 0.2
-
-print(std_dev_by_id)
-
-mean_std_dev <- mean(std_dev_by_id$std_dev_vo2max)
-
-print(mean_std_dev)
-print(std_dev_by_id)
-
-mean_std_dev_0.2 <- mean(std_dev_by_id$std_dev_vo2max_0.2)
-
-print(mean_std_dev_0.2)
-
-if ("std_dev_vo2max_0.2" %in% colnames(std_dev_by_id)) {
-
-  mean_std_dev_0.2 <- mean(std_dev_by_id$std_dev_vo2max_0.2)
-  
-  print(mean_std_dev_0.2)
-} else {
-  print("Kolonnen std_dev_vo2max_0.2 eksisterer ikke i dataframen.")
-}
-
-std_dev_wmax_by_id <- aggregate(data$w.max, by = list(data$id), FUN = function(x) sd(x) * 0.2)
-
-colnames(std_dev_wmax_by_id) <- c("ID", "std_dev_wmax_0.2")
-
-print(std_dev_wmax_by_id)
-
-mean_std_dev_wmax_0.2 <- mean(std_dev_wmax_by_id$std_dev_wmax_0.2)
-
-print(mean_std_dev_wmax_0.2)
-
-# Create std_dev_MAODa_by_id dataframe
-std_dev_MAODa_by_id <- aggregate(data$MAOD.a, by = list(data$id), FUN = function(x) sd(x) * 0.2)
-colnames(std_dev_MAODa_by_id) <- c("ID", "std_dev_MAODa_0.2")
-
-print(std_dev_MAODa_by_id)
-
-mean_std_dev_MAODa_0.2 <- mean(std_dev_MAODa_by_id$std_dev_MAODa_0.2)
-
-print(mean_std_dev_MAODa_0.2)
-
-# Sett resultatene i en tabell
-result_table <- data.frame(
-  ID = std_dev_by_id$id,
-  CV_VO2max = cv_results$cv_vo2max,
-  CV_Wmax = cv_wmax_results$cv_wmax,
-  CV_MAODa = cv_maoda_results$cv_maoda,
-  Std_Dev_VO2max_0.2 = std_dev_by_id$std_dev_vo2max_0.2,
-  Std_Dev_Wmax_0.2 = std_dev_wmax_by_id$std_dev_wmax_0.2,
-  Std_Dev_MAODa_0.2 = std_dev_MAODa_by_id$std_dev_MAODa_0.2
-)
-
-# Skriv ut tabellen
-print(kable(result_table))
-```
-
-
-```{r}
-#| echo: false
-
-library(readxl)
-library(dplyr)
-
-data <- read_excel("Fysologisk testing.xlsx")
-
-calculate_cv_and_sd <- function(df, variable) {
-  df %>%
-    group_by(id) %>%
-    summarise(cv = sd({{variable}}, na.rm = TRUE) / mean({{variable}}, na.rm = TRUE) * 100,
-              std_dev_0.2 = sd({{variable}}, na.rm = TRUE) * 0.2)
-}
-
-
-cv_vo2max_results <- calculate_cv_and_sd(data, vo2max)
-cv_wmax_results <- calculate_cv_and_sd(data, w.max)
-cv_maoda_results <- calculate_cv_and_sd(data, MAOD.a)
-
-
-print(cv_vo2max_results)
-print(cv_wmax_results)
-print(cv_maoda_results)
-
-
-mean_cv_vo2max <- mean(cv_vo2max_results$cv, na.rm = TRUE)
-mean_cv_wmax <- mean(cv_wmax_results$cv, na.rm = TRUE)
-mean_cv_maoda <- mean(cv_maoda_results$cv, na.rm = TRUE)
-
-mean_std_dev_vo2max <- mean(cv_vo2max_results$std_dev_0.2, na.rm = TRUE)
-mean_std_dev_wmax <- mean(cv_wmax_results$std_dev_0.2, na.rm = TRUE)
-mean_std_dev_maoda <- mean(cv_maoda_results$std_dev_0.2, na.rm = TRUE)
-
-
-print(mean_cv_vo2max)
-print(mean_cv_wmax)
-print(mean_cv_maoda)
-
-print(mean_std_dev_vo2max)
-print(mean_std_dev_wmax)
-print(mean_std_dev_maoda)
-
-```
-
+Noen aspekter ved metoden kan i retrospekt ha vært suboptimale, og følgelig ha påvirket resultatene i en negativ retning. Under den submaksimale testen ble testdeltakerne bedt om å sykle på den samme tråkkfekvensen som de ville sykle på under MAOD-testen. Ettersom belastningen under den submaksimale testen er mye lavere enn under MAOD-testen, kan tråkkfrekvensen oppleves kunstig høy under den submaksimale testen, og følgelig føre til en dårlig arbeidsøkonomi. For å fjerne feilkilden, kunne man ha individualisert hvilken watt den enkelte testdeltaker syklet på under de submaksimale dragene, slik at oksygenopptaket blir representativt for den gitte motstanden. Mengden verbal tilbakemelding fra testleder til forsøksperson under VO2-maks- og MAOD-testen kunne variere mellom T1 og T2. Dette kan skyldes at testlederne var noe tilbakeholdne på T1, og ble mer selvsikre på T2. Dette kan tenkes å ha påvirket testdeltakerne sin innsats i varierende grad mellom T1 og T2. Flere av testdeltakerne hadde Wmaks som varierte mye mellom første og andre testdag. Det regjerer således tvil om LODE-sykkelen som ble benyttet under testingen samsvarte med den motstanden vi stilte den inn på. Dette kan ha påvirket testresultatene.
