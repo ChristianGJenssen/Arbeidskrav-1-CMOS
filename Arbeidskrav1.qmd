@@ -4,6 +4,7 @@ subtitle: "arbeidskrav 1"
 format: html
 editor: visual
 author: Christian G. Jenssen, Marius Bjekeset, Oliver Bottolfs, Sivert Solheim
+bibliography: "Arbeidskrav1_bib.json"
 ---
 
 ## Arbeidskrav 1
@@ -75,7 +76,7 @@ Forsøkspersonene fikk klare retningslinjer, inkludert å avstå fra hard fysisk
 
 **Databehandling**
 
-VO2maks (ml/min) ble regnet ut ved å finne gjennomsnittet av målingene de to siste hele halvminuttene under VO2maks-testen. Maksimalt akkumulert oksygenunderskudd (MAOD) ble regnet ut med data fra både den submaksimale testen og MAOD-testen ved hjelp av en formel hentet fra boken Physiological Tests for Elite Athletes 2nd Edition (Australian Institute of Sports et al., 2012, s. 66).
+VO2maks (ml/min) ble regnet ut ved å finne gjennomsnittet av målingene de to siste hele halvminuttene under VO2maks-testen. Maksimalt akkumulert oksygenunderskudd (MAOD) ble regnet ut med data fra både den submaksimale testen og MAOD-testen ved hjelp av en formel hentet fra boken Physiological Tests for Elite Athletes 2nd Edition[Australian Institute of Sports et al., 2012, s. 66].
 
 **Statistiske analyser**
 
@@ -329,3 +330,23 @@ result_table %>%
 **METODISK DISKUSJON**
 
 Noen aspekter ved metoden kan i retrospekt ha vært suboptimale, og følgelig ha påvirket resultatene i en negativ retning. Under den submaksimale testen ble testdeltakerne bedt om å sykle på den samme tråkkfekvensen som de ville sykle på under MAOD-testen. Ettersom belastningen under den submaksimale testen er mye lavere enn under MAOD-testen, kan tråkkfrekvensen oppleves kunstig høy under den submaksimale testen, og følgelig føre til en dårlig arbeidsøkonomi. For å fjerne feilkilden, kunne man ha individualisert hvilken watt den enkelte testdeltaker syklet på under de submaksimale dragene, slik at oksygenopptaket blir representativt for den gitte motstanden. Mengden verbal tilbakemelding fra testleder til forsøksperson under VO2-maks- og MAOD-testen kunne variere mellom T1 og T2. Dette kan skyldes at testlederne var noe tilbakeholdne på T1, og ble mer selvsikre på T2. Dette kan tenkes å ha påvirket testdeltakerne sin innsats i varierende grad mellom T1 og T2. Flere av testdeltakerne hadde Wmaks som varierte mye mellom første og andre testdag. Det regjerer således tvil om LODE-sykkelen som ble benyttet under testingen samsvarte med den motstanden vi stilte den inn på. Dette kan ha påvirket testresultatene.
+
+
+
+## Bibliografi
+
+Australian Institute of Sports, Tanner, R., Gore, C. (2012). Physiological Tests for Elite Athletes (2. utgave). Human Kinetics.
+
+Halperin, I., Pyne, D. B., & Martin, D. T. (2015). Threats to internal validity in exercise science: A review of overlooked confounding variables. International Journal of Sports Physiology and Performance. DOI: https://doi.org/10.1123/ijspp.2014-0566
+
+Microsoft. (2023). Microsoft Excel (versjon 16.73) [Computer software]. Microsoft Corporation.
+
+RStudio Team. (2023). RStudio: Integrated Development Environment for R (Version 2023.06.2+561) [Computer software]. RStudio, PBC. https://www.rstudio.com/
+
+Hopkins, W. G. (2000). Measures of Reliability in Sports Medicine and Science. Sports Medicine.
+
+Hopkins, W. G. (2004). How to interpret changes in an athletic performance test. Sportscience, 8, 1–7. http://www.sportsci.org/jour/04/wghtests.htm
+
+Cronin JB, Hing RD, McNair PJ. Reliability and validity of a linear position transducer for measuring jump performance. J Strength Cond Res. 2004; 18(3):590–593. https://doi.org/10.1519/1533-4287 (2004)18<590:RAVOAL>2.0.CO;2 PMID: 15320688
+
+Taylor KL, Cronin J, Gill ND, Chapman DW, Sheppard J. Sources of variability in iso-inertial jump assessments. Int J Sports Physiol Perform. 2010; 5(4):546–558. https://doi.org/10.1123/ijspp.5.4.546 PMID: 21266738

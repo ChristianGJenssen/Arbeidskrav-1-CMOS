@@ -1,0 +1,233 @@
+[
+	{
+		"id": "http://zotero.org/users/9428233/items/RW98EHDC",
+		"type": "webpage",
+		"title": "Threats to Internal Validity in Exercise Science: A Review of Overlooked Confounding Variables in: International Journal of Sports Physiology and Performance Volume 10 Issue 7 (2015)",
+		"URL": "https://journals.humankinetics.com/view/journals/ijspp/10/7/article-p823.xml",
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					10,
+					15
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/9428233/items/CZDHJ8DS",
+		"type": "document",
+		"title": "Henning Wackerhage (editor)_ James P. Morton (editor)_ (Professor in Molecular Physiology and Epigenetics) Adam P. Sharples (editor) - Molecular exercise physiology _ an introduction (2022).pdf"
+	},
+	{
+		"id": "http://zotero.org/users/9428233/items/TDNN8JP7",
+		"type": "book",
+		"abstract": "\"Fully revised and expanded, the second edition of Molecular Exercise Physiology offers a student-friendly introduction. It introduces a history documenting the emergence of molecular biology techniques to investigate exercise physiology, the methodology used, exercise genetics and epigenetics, and the molecular mechanisms that lead to adaptation after different types of exercise, and explicitly links to outcomes in sport performance, nutrition, physical activity, and clinical exercise. Structured around key topics in sport and exercise science and featuring contributions from pioneering scientists, such as Nobel Prize winners, this edition includes new chapters based on cutting-edge research in epigenetics and muscle memory, skeletal muscle stem cells, circadian rhythms, exercise at altitude and in hot and cold climates, circadian rhythms, and exercise in cancer. Every chapter includes learning objectives, structured guides to further reading, review questions, overviews of work by key researchers and box discussions from important pioneers in the field, making it a complete resource for any molecular exercise physiology course. The book includes cell and molecular biology laboratory methods for dissertation and research projects in molecular exercise physiology and muscle physiology. This book is essential reading for upper-level undergraduate or postgraduate course in cellular and molecular exercise physiology and muscle physiology. It is a valuable resource for any student with an advanced interest in exercise physiology in both sport performance and clinical settings\"--",
+		"call-number": "GV558",
+		"edition": "Second edition",
+		"event-place": "New York",
+		"ISBN": "978-1-315-11075-2",
+		"language": "en",
+		"number-of-pages": "1",
+		"publisher": "Routledge, Taylor & Francis Group",
+		"publisher-place": "New York",
+		"source": "Library of Congress ISBN",
+		"title": "Molecular exercise physiology: an introduction",
+		"title-short": "Molecular exercise physiology",
+		"editor": [
+			{
+				"family": "Sharples",
+				"given": "Adam P."
+			},
+			{
+				"family": "Morton",
+				"given": "James"
+			},
+			{
+				"family": "Wackerhage",
+				"given": "Henning"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2022"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/9428233/items/PWRAXKCZ",
+		"type": "webpage",
+		"title": "How to Interpret Changes in an Athletic Performance Test",
+		"URL": "http://www.sportsci.org/jour/04/wghtests.htm",
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					10,
+					15
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/9428233/items/LU7YHA2Q",
+		"type": "document",
+		"title": "How to Interpret Changes in an Athletic Performance Test",
+		"URL": "http://www.sportsci.org/jour/04/wghtests.htm",
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					10,
+					15
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/9428233/items/LYKJ4826",
+		"type": "article-journal",
+		"abstract": "This study determined the reliability and validity of a linear position transducer to measure jump performance by comparing the mean force, peak force, and time-to-peak force measurements with data obtained simultaneously with a force platform. Twenty-five men performed squat, countermovement, and drop jumps with the linear transducer connected from a waist belt and base, which were placed upon a force platform. The Pearson correlation coefficients across the 3 jumps for the mean force (r = 0.952-0.962), peak force (r = 0.861-0.934), and time-to-peak force (r = 0.924-0.995) were high, providing evidence that the linear-transducer and force-platform measurements were similar. The trial-to-trial reliability of the jumps measured by the linear position transducer gave an intraclass correlation coefficient of 0.924-0.975 for mean force, 0.977-0.982 for peak force, and 0.721-0.964 for time-to-peak force. The coefficients of variation were 2.1-4.5% for mean force, 2.5-8.4% for peak force, and 4.1-11.8% for time-to-peak force. Our findings showed that the calculations derived from the linear transducer were very similar to those of the force platform and hence provided evidence of the validity of this method. The data from the linear transducer were also shown to be reliable. Therefore, this method of calculating force may provide a cost-effective alternative to the force platform for measuring this variable.",
+		"container-title": "Journal of Strength and Conditioning Research",
+		"DOI": "10.1519/1533-4287(2004)18<590:RAVOAL>2.0.CO;2",
+		"ISSN": "1064-8011",
+		"issue": "3",
+		"journalAbbreviation": "J Strength Cond Res",
+		"language": "eng",
+		"note": "PMID: 15320688",
+		"page": "590-593",
+		"source": "PubMed",
+		"title": "Reliability and validity of a linear position transducer for measuring jump performance",
+		"volume": "18",
+		"author": [
+			{
+				"family": "Cronin",
+				"given": "John B."
+			},
+			{
+				"family": "Hing",
+				"given": "Raewyn D."
+			},
+			{
+				"family": "McNair",
+				"given": "Peter J."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2004",
+					8
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/9428233/items/TUPGE2WN",
+		"type": "article-journal",
+		"abstract": "PURPOSE: This investigation aimed to quantify the typical variation for kinetic and kinematic variables measured during loaded jump squats.\nMETHODS: Thirteen professional athletes performed six maximal effort countermovement jumps on four occasions. Testing occurred over 2 d, twice per day (8 AM and 2 PM) separated by 7 d, with the same procedures replicated on each occasion. Jump height, peak power (PP), relative peak power (RPP), mean power (MP), peak velocity (PV), peak force (PF), mean force (MF), and peak rate of force development (RFD) measurements were obtained from a linear optical encoder attached to a 40 kg barbell.\nRESULTS: A diurnal variation in performance was observed with afternoon values displaying an average increase of 1.5-5.6% for PP, RPP, MP, PV, PF, and MF when compared with morning values (effect sizes ranging from 0.2-0.5). Day to day reliability was estimated by comparing the morning trials (AM reliability) and the afternoon trials (PM reliability). In both AM and PM conditions, all variables except RFD demonstrated coefficients of variations ranging between 0.8-6.2%. However, for a number of variables (RPP, MP, PV and height), AM reliability was substantially better than PM. PF and MF were the only variables to exhibit a coefficient of variation less than the smallest worthwhile change in both conditions.\nDISCUSSION: Results suggest that power output and associated variables exhibit a diurnal rhythm, with improved performance in the afternoon. Morning testing may be preferable when practitioners are seeking to conduct regular monitoring of an athlete's performance due to smaller variability.",
+		"container-title": "International Journal of Sports Physiology and Performance",
+		"DOI": "10.1123/ijspp.5.4.546",
+		"ISSN": "1555-0265",
+		"issue": "4",
+		"journalAbbreviation": "Int J Sports Physiol Perform",
+		"language": "eng",
+		"note": "PMID: 21266738",
+		"page": "546-558",
+		"source": "PubMed",
+		"title": "Sources of variability in iso-inertial jump assessments",
+		"volume": "5",
+		"author": [
+			{
+				"family": "Taylor",
+				"given": "Kristie-Lee"
+			},
+			{
+				"family": "Cronin",
+				"given": "John"
+			},
+			{
+				"family": "Gill",
+				"given": "Nicholas D."
+			},
+			{
+				"family": "Chapman",
+				"given": "Dale W."
+			},
+			{
+				"family": "Sheppard",
+				"given": "Jeremy"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2010",
+					12
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/9428233/items/IC3F77EC",
+		"type": "article-journal",
+		"abstract": "Reliability refers to the reproducibility of values of a test, assay or other measurement in repeated trials on the same individuals. Better reliability implies better precision of single measurements and better tracking of changes in measurements in research or practical settings. The main measures of reliability are within-subject random variation, systematic change in the mean, and retest correlation. A simple, adaptable form of within-subject variation is the typical (standard) error of measurement: the standard deviation of an individual's repeated measurements. For many measurements in sports medicine and science, the typical error is best expressed as a coefficient of variation (percentage of the mean). A biased, more limited form of within-subject variation is the limits of agreement: the 95% likely range of change of an individual's measurements between 2 trials. Systematic changes in the mean of a measure between consecutive trials represent such effects as learning, motivation or fatigue; these changes need to be eliminated from estimates of within-subject variation. Retest correlation is difficult to interpret, mainly because its value is sensitive to the heterogeneity of the sample of participants. Uses of reliability include decision-making when monitoring individuals, comparison of tests or equipment, estimation of sample size in experiments and estimation of the magnitude of individual differences in the response to a treatment. Reasonable precision for estimates of reliability requires approximately 50 study participants and at least 3 trials. Studies aimed at assessing variation in reliability between tests or equipment require complex designs and analyses that researchers seldom perform correctly. A wider understanding of reliability and adoption of the typical error as the standard measure of reliability would improve the assessment of tests and equipment in our disciplines.",
+		"container-title": "Sports Medicine (Auckland, N.Z.)",
+		"DOI": "10.2165/00007256-200030010-00001",
+		"ISSN": "0112-1642",
+		"issue": "1",
+		"journalAbbreviation": "Sports Med",
+		"language": "eng",
+		"note": "PMID: 10907753",
+		"page": "1-15",
+		"source": "PubMed",
+		"title": "Measures of reliability in sports medicine and science",
+		"volume": "30",
+		"author": [
+			{
+				"family": "Hopkins",
+				"given": "W. G."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2000",
+					7
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/9428233/items/VCQ8AVJW",
+		"type": "document",
+		"title": "PubMed entry",
+		"URL": "http://www.ncbi.nlm.nih.gov/pubmed/10907753",
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					10,
+					15
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/9428233/items/KVB8NRLG",
+		"type": "document",
+		"title": "Full Text",
+		"URL": "https://www.sportsci.org/resource/stats/Hopkins_SportsMed_rely_00.pdf",
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					10,
+					15
+				]
+			]
+		}
+	}
+]
