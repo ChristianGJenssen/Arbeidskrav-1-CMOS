@@ -223,35 +223,17 @@ summary_table %>%
   kable(caption="Tabell 2: Utregning av CV i %  og STD")
 
 ```
+***Tabell 2** viser CV og standardavvik for hver av de tre utfallsvariablene for hver forsøksperson.*
 
-------------------------------------------------------------------------
 
-```{r}
-#| echo: false
 
-data <- read_excel("Fysologisk testing.xlsx")
-
-calculate_cv <- function(x) {
-  cv <- sd(x) / mean(x)
-  return(cv)
-}
-
-data <- na.omit(data[, c("id", "vo2max", "MAOD.a")])
-
-if (nrow(data) > 0) {
  
-  cv_data <- aggregate(. ~ id, data=data, FUN=calculate_cv)
-
-  cv_data %>% 
-    kable(caption="Figur 3")
-
-} else {
-  cat("Ingen data tilgjengelig for beregning av CV.")
-}
-
-```
-
-
+  
+   
+    
+     
+      
+      
 
 ```{r}
 #| echo: false
@@ -338,13 +320,12 @@ colnames(result_table) <- c("Variable", "Mean Coef. of Variation (0.2)", "Mean S
 
 
 result_table %>% 
-    kable(caption="Tabell 4")
+    kable(caption="Tabell 3")
 
 })
 
 ```
-
-------------------------------------------------------------------------
+***Tabell 3** viser Mean Coefficient of Variation og Mean Standard Deviation for hver av de tre utfallsvariablene.*
 
 **METODISK DISKUSJON**
 
