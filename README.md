@@ -8,4 +8,4 @@ Olvier Bottolfs,
 Sivert Solheim,
 
 
-Prøvde å få til  bibliography uten å lykkes, men har 2 filer som heter Arbeidskrav1_bib.json og Arbeidskrav_1_ bibliography
+Prøvde å få til  bibliography uten å lykkes, men har 3 filer som heter Arbeidskrav1_bib.json og Arbeidskrav_1_ bibliography pluss Kilder.qmd
