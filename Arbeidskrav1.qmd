@@ -101,7 +101,7 @@ theme(plot.title = element_text(hjust = 0.51)) +
   
   ggtitle("Vo2max by Timepoint") 
 ```
-
+***Figur 1** Boxplot av vo2max på testdag 1 (T1) og Testdag 2 (T2)*
 
 
 ```{r}
@@ -166,10 +166,10 @@ summary_table <- data %>%
 
 
 summary_table %>% 
-  kable(caption="Tabell 1: gruppe egenskaper")
+  kable(caption="Tabell 1: Gruppe egenskaper")
 
 ```
-
+***Tabell 1** viser Gjennomsittet, Standardavviket, Medianen og de høyeste og laveste målingene til testgruppa.*
 
 
 
@@ -226,10 +226,9 @@ summary_table %>%
 ***Tabell 2** viser CV og standardavvik for hver av de tre utfallsvariablene for hver forsøksperson.*
 
 
-
- 
-  
-   
+#
+#
+#
     
      
       
@@ -320,7 +319,7 @@ colnames(result_table) <- c("Variable", "Mean Coef. of Variation (0.2)", "Mean S
 
 
 result_table %>% 
-    kable(caption="Tabell 3")
+    kable(caption="Tabell 3: Mean Coefficient of Variation og Mean Standard Deviation")
 
 })
 
