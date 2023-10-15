@@ -220,7 +220,7 @@ if ("std_dev_MAODa" %in% colnames(summary_table)) {
 }
 
 summary_table %>% 
-  kable(caption="Tabell 2: Utregning av CV og STD")
+  kable(caption="Tabell 2: Utregning av CV(%) og STD")
 
 ```
 
@@ -228,10 +228,6 @@ summary_table %>%
 
 ```{r}
 #| echo: false
-
-# Installer og last inn nødvendige pakker
-if (!require("knitr")) install.packages("knitr")
-library(knitr)
 
 data <- read_excel("Fysologisk testing.xlsx")
 
