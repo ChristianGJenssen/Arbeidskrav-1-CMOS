@@ -11,13 +11,30 @@ author: Christian G. Jenssen, Marius Bjekeset, Oliver Bottolfs, Sivert Solheim
 ```{r}
 #| echo: false
 #| message: false
-library(dplyr)
-library(ggplot2)
+if (!require("knitr")) install.packages("knitr")
 library(knitr)
-library(readxl)
-library(tibble)
+
+if (!require("tidyr")) install.packages("tidyr")
 library(tidyr)
+
+if (!require("tibble")) install.packages("tibble")
+library(tibble)
+
+if (!require("readxl")) install.packages("readxl")
+library(readxl)
+
+if (!require("ggplot2")) install.packages("ggplot2")
+library(ggplot2)
+
+if (!require("dplyr")) install.packages("dplyr")
+library(dplyr)
+
+if (!require("tidyverse")) install.packages("tidyverse")
 library(tidyverse)
+
+if (!require("gt")) install.packages("gt")
+library(gt)
+
 ```
 
 **Forberedelser**
@@ -58,11 +75,11 @@ Forsøkspersonene fikk klare retningslinjer, inkludert å avstå fra hard fysisk
 
 **Databehandling**
 
-VO2maks (ml/min) ble regnet ut ved å finne gjennomsnittet av målingene de to siste hele halvminuttene under VO2maks-testen. Maksimalt akkumulert oksygenunderskudd (MAOD) ble regnet ut med data fra både den submaksimale testen og MAOD-testen ved hjelp av en formel hentet fra boken Physiological Tests for Elite Athletes 2nd Edition (Australian Institute of Sports et al., 2012, s. 66). Statistiske analyser Før vi utførte statistiske analyser, ble datasettet rengjort for eventuelle feilregistreringer eller manglende data. Statistiske analyser ble utført i programvaren RStudio (versjon 2023.06.2+561; RStudio Team, 2023), og ble organisert i Microsoft Excel (versjon 16.73, Microsoft Corporation, 2023). Deskriptiv statistikk er presentert som gjennomsnitt, standardavvik og minimums- og maksimumsverdi. Basert på anbefalingene fra Hopkins (2012) benyttet vi variasjonskoeffisient (CV %) for å undersøke test-retest reliabiliteten til følgende tester: VO2-maks, Wmaks og MAOD.a. Dårlig reliabilitet ble ansett som CV \> 10 %, akseptabel reliabilitet ble ansett som CV = 5--10 % og god reliabilitet ble ansett som CV \< 5 % (Cronin et al., 2004; Taylor et al., 2010). For å videre undersøke om testene var reliable nok til å observere betydningsfulle forskjeller anvendte vi minste betydningsfulle forskjell (SWC). Beregningen av SWC ble gjort i henhold til Hopkins et al. (2009). Når CV % ≤ SWC, ble testen ansett i stand til å oppdage betydningsfulle forskjeller (Hopkins, 2004).
+VO2maks (ml/min) ble regnet ut ved å finne gjennomsnittet av målingene de to siste hele halvminuttene under VO2maks-testen. Maksimalt akkumulert oksygenunderskudd (MAOD) ble regnet ut med data fra både den submaksimale testen og MAOD-testen ved hjelp av en formel hentet fra boken Physiological Tests for Elite Athletes 2nd Edition (Australian Institute of Sports et al., 2012, s. 66).
 
 **Statistiske analyser**
 
-Før vi utførte statistiske analyser, ble datasettet rengjort for eventuelle feilregistreringer eller manglende data. Statistiske analyser ble utført i programvaren RStudio (versjon 2023.06.2+561; RStudio Team, 2023), og ble organisert i Microsoft Excel (versjon 16.73, Microsoft Corporation, 2023). Deskriptiv statistikk er presentert som gjennomsnitt, standardavvik og minimums- og maksimumsverdi. Basert på anbefalingene fra Hopkins (2012) benyttet vi variasjonskoeffisient (CV %) for å undersøke test-retest reliabiliteten til følgende tester: VO2-maks, Wmaks og MAOD.a. Dårlig reliabilitet ble ansett som CV \> 10 %, akseptabel reliabilitet ble ansett som CV = 5--10 % og god reliabilitet ble ansett som CV \< 5 % (Cronin et al., 2004; Taylor et al., 2010). For å videre undersøke om testene var reliable nok til å observere betydningsfulle forskjeller anvendte vi minste betydningsfulle forskjell (SWC). Beregningen av SWC ble gjort i henhold til Hopkins et al. (2009). Når CV % ≤ SWC, ble testen ansett i stand til å oppdage betydningsfulle forskjeller (Hopkins, 2004).
+Før vi utførte statistiske analyser, ble datasettet rengjort for eventuelle feilregistreringer eller manglende data. Statistiske analyser ble utført i programvaren RStudio (versjon 2023.06.2+561; RStudio Team, 2023), og ble organisert i Microsoft Excel (versjon 16.73, Microsoft Corporation, 2023). Deskriptiv statistikk er presentert som gjennomsnitt, standardavvik og minimums- og maksimumsverdi. Basert på anbefalingene fra Hopkins (2012) benyttet vi variasjonskoeffisient (CV %) for å undersøke test-retest reliabiliteten til følgende tester: VO2-maks, Wmaks og MAOD.a. Dårlig reliabilitet ble ansett som CV > 10 %, akseptabel reliabilitet ble ansett som CV = 5–10 % og god reliabilitet ble ansett som CV < 5 % (Cronin et al., 2004; Taylor et al., 2010). For å videre undersøke om testene var reliable nok til å observere betydningsfulle forskjeller anvendte vi minste betydningsfulle forskjell (SWC). Beregningen av SWC ble gjort i henhold til Hopkins et al. (2009). Når CV % ≤ SWC, ble testen ansett i stand til å oppdage betydningsfulle forskjeller (Hopkins, 2004).
 
 
 ## Resultater
@@ -90,8 +107,7 @@ theme(plot.title = element_text(hjust = 0.51)) +
 ```{r}
 #| echo: false
 
-
-data <- read_excel("Fysologisk testing.xlsx")
+data <- read_excel("Fysologisk testing.xlsx") 
 
 summary_table <- data %>%
   summarise(
@@ -146,13 +162,16 @@ summary_table <- data %>%
       Median = median(MAOD.a),
       Minimum = min(MAOD.a),
       Maksimum = max(MAOD.a)
-    ))
+    )) 
 
-print(summary_table)
+
+summary_table %>% 
+  kable(caption="Tabell 1: gruppe egenskaper")
 
 ```
 
 ------------------------------------------------------------------------
+
 
 
 ```{r}
@@ -200,16 +219,19 @@ if ("std_dev_MAODa" %in% colnames(summary_table)) {
   mean_std_dev_MAODa_data <- "Kolonnen std_dev_MAODa eksisterer ikke i dataframen."
 }
 
-print(summary_table)
+summary_table %>% 
+  kable(caption="Tabell 2: Utregning av CV og STD")
 
 ```
 
 ------------------------------------------------------------------------
 
-Denne lager tabell
-
 ```{r}
 #| echo: false
+
+# Installer og last inn nødvendige pakker
+if (!require("knitr")) install.packages("knitr")
+library(knitr)
 
 data <- read_excel("Fysologisk testing.xlsx")
 
@@ -223,9 +245,10 @@ data <- na.omit(data[, c("id", "vo2max", "MAOD.a")])
 if (nrow(data) > 0) {
  
   cv_data <- aggregate(. ~ id, data=data, FUN=calculate_cv)
-  
 
-  print(cv_data)
+  cv_data %>% 
+    kable(caption="Figur 3")
+
 } else {
   cat("Ingen data tilgjengelig for beregning av CV.")
 }
@@ -316,10 +339,12 @@ result_table <- result_table[!(result_table$Variable %in% c("MAOD.a (after NA re
 rownames(result_table) <- NULL
 
 colnames(result_table) <- c("Variable", "Mean Coef. of Variation (0.2)", "Mean Std. Deviation (0.2)")
+
+
+result_table %>% 
+    kable(caption="Tabell 4")
+
 })
-
-
-print(result_table)
 
 ```
 

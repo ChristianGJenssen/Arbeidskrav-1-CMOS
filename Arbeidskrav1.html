@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Under testingen ble hele prosedyren gjennomført sittende, og forsøkspersonene ble plassert i samme sittestilling. For å opprettholde standardisering ble det ikke spilt musikk under testen. Det var også viktig å ha kontinuitet med hensyn til testledere og observatører, så de samme personene ble benyttet på begge testdagene. Videre ble forsøkspersonene instruert til å ha to dagers restitusjonstid mellom testdag 1 og testdag 2 for å minimere eventuelle påvirkninger fra tidligere testing. Testlederne opplyste ikke om VO2-maks nivået under selve testen, og den samme testlederen ble brukt på begge testdagene. Testlederne fulgte protokollen på samme måte, og det ble lagt vekt på å gi tilnærmet lik tilbakemelding og engasjement. Under VO2maks-testen ble tilbakemeldingen gradvis økt utover testen for å motivere forsøkspersonene til sitt ytterste. Det ble også notert hvor mye og når forsøkspersonene hadde spist før testdag 1, og dette ble gjentatt på testdag 2. Spesielt var det viktig å sikre inntak av energirik mat og drikke. Dette er en rekke viktige tiltak for å sikre høy reliabilitet i fysiologisk testing (Halperin, I., Pyne, D. B., &amp; Martin, D. T, 2015).</p>
 <p>Forsøkspersonene fikk klare retningslinjer, inkludert å avstå fra hard fysisk trening de siste 48 timene før testing, opprettholde tilnærmet lik fysisk aktivitet og døgnrytme de siste 48 timene før de to testdagene. I tillegg ble de instruert om å unngå inntak av nikotin og/eller alkohol de siste 48 timene før testing. Inntak av koffein på testdagene ble også regulert for å sikre lik mengde. Forsøkspersonene ble instruert om å ha samme type og mengde mat og drikke samme dag som testen, med siste måltid minst 2 timer før testing. Det var også krav om å bruke samme klær og sko på begge testdagene for å minimere variabler som kunne påvirke resultatene. Disse tiltakene ble nøye implementert for å sikre pålitelige og sammenlignbare resultater mellom de to testdagene.</p>
 <p><strong>Databehandling</strong></p>
-<p>VO2maks (ml/min) ble regnet ut ved å finne gjennomsnittet av målingene de to siste hele halvminuttene under VO2maks-testen. Maksimalt akkumulert oksygenunderskudd (MAOD) ble regnet ut med data fra både den submaksimale testen og MAOD-testen ved hjelp av en formel hentet fra boken Physiological Tests for Elite Athletes 2nd Edition (Australian Institute of Sports et al., 2012, s. 66). Statistiske analyser Før vi utførte statistiske analyser, ble datasettet rengjort for eventuelle feilregistreringer eller manglende data. Statistiske analyser ble utført i programvaren RStudio (versjon 2023.06.2+561; RStudio Team, 2023), og ble organisert i Microsoft Excel (versjon 16.73, Microsoft Corporation, 2023). Deskriptiv statistikk er presentert som gjennomsnitt, standardavvik og minimums- og maksimumsverdi. Basert på anbefalingene fra Hopkins (2012) benyttet vi variasjonskoeffisient (CV %) for å undersøke test-retest reliabiliteten til følgende tester: VO2-maks, Wmaks og MAOD.a. Dårlig reliabilitet ble ansett som CV &gt; 10 %, akseptabel reliabilitet ble ansett som CV = 5–10 % og god reliabilitet ble ansett som CV &lt; 5 % (Cronin et al., 2004; Taylor et al., 2010). For å videre undersøke om testene var reliable nok til å observere betydningsfulle forskjeller anvendte vi minste betydningsfulle forskjell (SWC). Beregningen av SWC ble gjort i henhold til Hopkins et al.&nbsp;(2009). Når CV % ≤ SWC, ble testen ansett i stand til å oppdage betydningsfulle forskjeller (Hopkins, 2004).</p>
+<p>VO2maks (ml/min) ble regnet ut ved å finne gjennomsnittet av målingene de to siste hele halvminuttene under VO2maks-testen. Maksimalt akkumulert oksygenunderskudd (MAOD) ble regnet ut med data fra både den submaksimale testen og MAOD-testen ved hjelp av en formel hentet fra boken Physiological Tests for Elite Athletes 2nd Edition (Australian Institute of Sports et al., 2012, s. 66).</p>
 <p><strong>Statistiske analyser</strong></p>
 <p>Før vi utførte statistiske analyser, ble datasettet rengjort for eventuelle feilregistreringer eller manglende data. Statistiske analyser ble utført i programvaren RStudio (versjon 2023.06.2+561; RStudio Team, 2023), og ble organisert i Microsoft Excel (versjon 16.73, Microsoft Corporation, 2023). Deskriptiv statistikk er presentert som gjennomsnitt, standardavvik og minimums- og maksimumsverdi. Basert på anbefalingene fra Hopkins (2012) benyttet vi variasjonskoeffisient (CV %) for å undersøke test-retest reliabiliteten til følgende tester: VO2-maks, Wmaks og MAOD.a. Dårlig reliabilitet ble ansett som CV &gt; 10 %, akseptabel reliabilitet ble ansett som CV = 5–10 % og god reliabilitet ble ansett som CV &lt; 5 % (Cronin et al., 2004; Taylor et al., 2010). For å videre undersøke om testene var reliable nok til å observere betydningsfulle forskjeller anvendte vi minste betydningsfulle forskjell (SWC). Beregningen av SWC ble gjort i henhold til Hopkins et al.&nbsp;(2009). Når CV % ≤ SWC, ble testen ansett i stand til å oppdage betydningsfulle forskjeller (Hopkins, 2004).</p>
 </section>
@@ -103,53 +103,246 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <hr>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 6
-  Variabel   Gjennomsnitt Standardavvik Median Minimum Maksimum
-  &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-1 Alder              24.1          2.18   24      22       29  
-2 Bodyheight        179.           4.60  176     175      187  
-3 Vekt               77.6          7.97   79.2    60.6     88.9
-4 Vo2max           4729.        1071.   5072    2787     6266  
-5 w.max             421.          82.5   438.    275      525  
-6 MAOD.a             69.3         17.4    77.9    43.2     92.4</code></pre>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Tabell 1: gruppe egenskaper</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variabel</th>
+<th style="text-align: right;">Gjennomsnitt</th>
+<th style="text-align: right;">Standardavvik</th>
+<th style="text-align: right;">Median</th>
+<th style="text-align: right;">Minimum</th>
+<th style="text-align: right;">Maksimum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Alder</td>
+<td style="text-align: right;">24.14286</td>
+<td style="text-align: right;">2.178819</td>
+<td style="text-align: right;">24.000</td>
+<td style="text-align: right;">22.00</td>
+<td style="text-align: right;">29.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bodyheight</td>
+<td style="text-align: right;">179.42857</td>
+<td style="text-align: right;">4.602914</td>
+<td style="text-align: right;">176.000</td>
+<td style="text-align: right;">175.00</td>
+<td style="text-align: right;">187.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vekt</td>
+<td style="text-align: right;">77.63571</td>
+<td style="text-align: right;">7.966527</td>
+<td style="text-align: right;">79.200</td>
+<td style="text-align: right;">60.60</td>
+<td style="text-align: right;">88.90</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vo2max</td>
+<td style="text-align: right;">4729.42857</td>
+<td style="text-align: right;">1071.111264</td>
+<td style="text-align: right;">5072.000</td>
+<td style="text-align: right;">2787.00</td>
+<td style="text-align: right;">6266.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">w.max</td>
+<td style="text-align: right;">421.42857</td>
+<td style="text-align: right;">82.542031</td>
+<td style="text-align: right;">437.500</td>
+<td style="text-align: right;">275.00</td>
+<td style="text-align: right;">525.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAOD.a</td>
+<td style="text-align: right;">69.34500</td>
+<td style="text-align: right;">17.434024</td>
+<td style="text-align: right;">77.875</td>
+<td style="text-align: right;">43.21</td>
+<td style="text-align: right;">92.41</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <hr>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 7
-     id cv_vo2max cv_wmax cv_maoda std_dev_vo2max std_dev_wmax std_dev_MAODa
-  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;
-1     1    3.15     10.9      3.41         34.8          10.6          0.550
-2     2    0.0254    6.15     4.51          0.141         3.54         0.728
-3     3    4.50      4.88     2.32         35.8           3.54         0.223
-4     4    2.13     11.5      7.68         21.6          10.6          1.26 
-5     5    2.43      0        4.47         30.0           0            0.800
-6     7    0.558     0        2.22          4.95          0            0.235
-7     8    0.110     0       22.7           1.13          0            2.33 </code></pre>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Tabell 2: Utregning av CV og STD</caption>
+<colgroup>
+<col style="width: 4%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 20%">
+<col style="width: 17%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: right;">cv_vo2max</th>
+<th style="text-align: right;">cv_wmax</th>
+<th style="text-align: right;">cv_maoda</th>
+<th style="text-align: right;">std_dev_vo2max</th>
+<th style="text-align: right;">std_dev_wmax</th>
+<th style="text-align: right;">std_dev_MAODa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.1466763</td>
+<td style="text-align: right;">10.878566</td>
+<td style="text-align: right;">3.414194</td>
+<td style="text-align: right;">34.7896536</td>
+<td style="text-align: right;">10.606602</td>
+<td style="text-align: right;">0.5501291</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0253671</td>
+<td style="text-align: right;">6.148755</td>
+<td style="text-align: right;">4.513914</td>
+<td style="text-align: right;">0.1414214</td>
+<td style="text-align: right;">3.535534</td>
+<td style="text-align: right;">0.7283200</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4.5011452</td>
+<td style="text-align: right;">4.876599</td>
+<td style="text-align: right;">2.324654</td>
+<td style="text-align: right;">35.7796031</td>
+<td style="text-align: right;">3.535534</td>
+<td style="text-align: right;">0.2234457</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2.1282057</td>
+<td style="text-align: right;">11.466596</td>
+<td style="text-align: right;">7.681637</td>
+<td style="text-align: right;">21.6374675</td>
+<td style="text-align: right;">10.606602</td>
+<td style="text-align: right;">1.2614785</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2.4335493</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">4.467766</td>
+<td style="text-align: right;">29.9813275</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">0.8004449</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.5584731</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">2.216385</td>
+<td style="text-align: right;">4.9497475</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">0.2347595</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.1100341</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">22.684024</td>
+<td style="text-align: right;">1.1313708</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">2.3348666</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <hr>
-<p>Denne lager tabell</p>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>  id       vo2max     MAOD.a
-1  1 0.0314667634 0.03414194
-2  2 0.0002536706 0.04513914
-3  3 0.0450114519 0.02324654
-4  4 0.0212820571 0.07681637
-5  5 0.0243354931 0.04467766
-6  7 0.0055847314 0.02216385
-7  8 0.0011003412 0.22684024</code></pre>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Figur 3</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: right;">vo2max</th>
+<th style="text-align: right;">MAOD.a</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0314668</td>
+<td style="text-align: right;">0.0341419</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0002537</td>
+<td style="text-align: right;">0.0451391</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0450115</td>
+<td style="text-align: right;">0.0232465</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.0212821</td>
+<td style="text-align: right;">0.0768164</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.0243355</td>
+<td style="text-align: right;">0.0446777</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0.0055847</td>
+<td style="text-align: right;">0.0221638</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.0011003</td>
+<td style="text-align: right;">0.2268402</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>  Variable Mean Coef. of Variation (0.2) Mean Std. Deviation (0.2)
-1   VO2max                      1.843350                18.3443702
-2    W.max                      4.767216                 4.0406102
-3   MAOD.a                      6.757510                 0.8762063</code></pre>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Tabell 4</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: right;">Mean Coef. of Variation (0.2)</th>
+<th style="text-align: right;">Mean Std. Deviation (0.2)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">VO2max</td>
+<td style="text-align: right;">1.843350</td>
+<td style="text-align: right;">18.3443702</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">W.max</td>
+<td style="text-align: right;">4.767216</td>
+<td style="text-align: right;">4.0406102</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MAOD.a</td>
+<td style="text-align: right;">6.757511</td>
+<td style="text-align: right;">0.8762063</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <hr>
