@@ -113,61 +113,61 @@ theme(plot.title = element_text(hjust = 0.51)) +
 
 data <- read_excel("Fysologisk testing.xlsx") 
 
+
 summary_table <- data %>%
   summarise(
     Variabel = "Alder",
-    Gjennomsnitt = mean(age),
-    Standardavvik = sd(age),
-    Median = median(age),
-    Minimum = min(age),
-    Maksimum = max(age)
+    Gjennomsnitt = round(mean(age), 2),
+    Standardavvik = round(sd(age), 2),
+    Median = round(median(age), 2),
+    Minimum = round(min(age), 2),
+    Maksimum = round(max(age), 2)
   ) %>%
   bind_rows(data %>%
     summarise(
       Variabel = "Bodyheight",
-      Gjennomsnitt = mean(bodyheight),
-      Standardavvik = sd(bodyheight),
-      Median = median(bodyheight),
-      Minimum = min(bodyheight),
-      Maksimum = max(bodyheight)
+      Gjennomsnitt = round(mean(bodyheight), 2),
+      Standardavvik = round(sd(bodyheight), 2),
+      Median = round(median(bodyheight), 2),
+      Minimum = round(min(bodyheight), 2),
+      Maksimum = round(max(bodyheight), 2)
     )) %>%
   bind_rows(data %>%
     summarise(
       Variabel = "Vekt",
-      Gjennomsnitt = mean(vekt),
-      Standardavvik = sd(vekt),
-      Median = median(vekt),
-      Minimum = min(vekt),
-      Maksimum = max(vekt)
+      Gjennomsnitt = round(mean(vekt), 2),
+      Standardavvik = round(sd(vekt), 2),
+      Median = round(median(vekt), 2),
+      Minimum = round(min(vekt), 2),
+      Maksimum = round(max(vekt), 2)
     )) %>%
   bind_rows(data %>%
     summarise(
       Variabel = "Vo2max",
-      Gjennomsnitt = mean(vo2max),
-      Standardavvik = sd(vo2max),
-      Median = median(vo2max),
-      Minimum = min(vo2max),
-      Maksimum = max(vo2max)
+      Gjennomsnitt = round(mean(vo2max), 2),
+      Standardavvik = round(sd(vo2max), 2),
+      Median = round(median(vo2max), 2),
+      Minimum = round(min(vo2max), 2),
+      Maksimum = round(max(vo2max), 2)
     )) %>%
   bind_rows(data %>%
     summarise(
       Variabel = "w.max",
-      Gjennomsnitt = mean(w.max),
-      Standardavvik = sd(w.max),
-      Median = median(w.max),
-      Minimum = min(w.max),
-      Maksimum = max(w.max)
+      Gjennomsnitt = round(mean(w.max), 2),
+      Standardavvik = round(sd(w.max), 2),
+      Median = round(median(w.max), 2),
+      Minimum = round(min(w.max), 2),
+      Maksimum = round(max(w.max), 2)
     )) %>%
   bind_rows(data %>%
     summarise(
       Variabel = "MAOD.a",
-      Gjennomsnitt = mean(MAOD.a),
-      Standardavvik = sd(MAOD.a),
-      Median = median(MAOD.a),
-      Minimum = min(MAOD.a),
-      Maksimum = max(MAOD.a)
+      Gjennomsnitt = round(mean(MAOD.a), 2),
+      Standardavvik = round(sd(MAOD.a), 2),
+      Median = round(median(MAOD.a), 2),
+      Minimum = round(min(MAOD.a), 2),
+      Maksimum = round(max(MAOD.a), 2)
     )) 
-
 
 summary_table %>% 
   kable(caption="Tabell 1: Gruppe egenskaper")
