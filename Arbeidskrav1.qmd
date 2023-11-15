@@ -89,6 +89,7 @@ Deskriptiv statistikk av forsøkspersonenes VO2-maks, Wmaks og MAOD.a ved T1 og 
 
 ```{r}
 #| echo: false
+#| fig-cap: "***Figur 1:** Boxplot av vo2max på testdag 1 (T1) og Testdag 2 (T2)*"
 
 data <- read_excel("Fysologisk testing.xlsx")
 
@@ -102,11 +103,13 @@ theme(plot.title = element_text(hjust = 0.51)) +
   
   ggtitle("Vo2max by Timepoint") 
 ```
-***Figur 1** Boxplot av vo2max på testdag 1 (T1) og Testdag 2 (T2)*
+
 
 
 ```{r}
 #| echo: false
+#| fig-cap: "***Tabell 1:** viser Gjennomsittet, Standardavviket, Medianen og de høyeste og laveste målingene til testgruppa.*"
+
 
 data <- read_excel("Fysologisk testing.xlsx") 
 
@@ -170,13 +173,14 @@ summary_table %>%
   kable(caption="Tabell 1: Gruppe egenskaper")
 
 ```
-***Tabell 1** viser Gjennomsittet, Standardavviket, Medianen og de høyeste og laveste målingene til testgruppa.*
+
 
 
 
 
 ```{r}
 #| echo: false
+#| fig-cap: "***Tabell 2:** viser CV og standardavvik for hver av de tre utfallsvariablene for hver forsøksperson.*"
 
 data <- read_excel("Fysologisk testing.xlsx")
 
@@ -214,6 +218,13 @@ summary_table <- tibble(
   std_dev_MAODa = std_dev_maoda_by_id$std_dev_MAODa
 )
 
+summary_table <- round(summary_table, digits = 2)
+
+
+
+
+
+
 if ("std_dev_MAODa" %in% colnames(summary_table)) {
   mean_std_dev_MAODa_data <- mean(summary_table$std_dev_MAODa, na.rm = TRUE)
 } else {
@@ -224,7 +235,7 @@ summary_table %>%
   kable(caption="Tabell 2: Utregning av CV i %  og STD")
 
 ```
-***Tabell 2** viser CV og standardavvik for hver av de tre utfallsvariablene for hver forsøksperson.*
+
 
 
 #
@@ -237,7 +248,7 @@ summary_table %>%
 
 ```{r}
 #| echo: false
-
+#| fig-cap: "***Tabell 3:** viser Mean Coefficient of Variation og Mean Standard Deviation for hver av de tre utfallsvariablene.*"
 
 data <- read_excel("Fysologisk testing.xlsx")
 
@@ -304,28 +315,35 @@ data <- data %>%
 
 mean_std_dev_MAODa_0.2 <- mean(data$std_dev_MAODa_0.2, na.rm = TRUE)
 
-result_table <- data.frame(
+result_table1 <- data.frame(
   Variable = c("VO2max", "W.max", "MAOD.a"),
   `Mean Coef. of Variation (0.2)` = c(mean_cv, mean_cv_wmax, mean_cv_maoda),
   `Mean Std. Deviation (0.2)` = c(mean_std_dev, mean_std_dev_wmax_0.2, mean_std_dev_MAODa_0.2)
 )
 
-result_table$Variable <- gsub("^\\d+\\.?\\d*\\s*", "", result_table$Variable)
+result_table1$Variable <- gsub("^\\d+\\.?\\d*\\s*", "", result_table1$Variable)
 
-result_table <- result_table[!(result_table$Variable %in% c("MAOD.a (after NA removal)", "MAOD.a (after calculation)")), ]
+result_table1 <- result_table1[!(result_table1$Variable %in% c("MAOD.a (after NA removal)", "MAOD.a (after calculation)")), ]
 
-rownames(result_table) <- NULL
+rownames(result_table1) <- NULL
 
-colnames(result_table) <- c("Variable", "Mean Coef. of Variation (0.2)", "Mean Std. Deviation (0.2)")
+colnames(result_table1) <- c("Variable", "Mean Coef. of Variation (0.2)", "Mean Std. Deviation (0.2)")
 
 
-result_table %>% 
+round_decimals <- function(x, n) {
+  return(round(x, n))
+}
+
+result_table1[, 2:3] <- lapply(result_table1[, 2:3], round_decimals, n = 2)
+
+
+result_table1 %>% 
     kable(caption="Tabell 3: Mean Coefficient of Variation og Mean Standard Deviation")
 
 })
 
 ```
-***Tabell 3** viser Mean Coefficient of Variation og Mean Standard Deviation for hver av de tre utfallsvariablene.*
+
 
 **METODISK DISKUSJON**
 
