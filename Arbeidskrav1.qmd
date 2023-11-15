@@ -105,6 +105,24 @@ theme(plot.title = element_text(hjust = 0.51)) +
 
 ```{r}
 #| echo: false
+#| fig-cap: "***Figur 2:** Figuren viser Vo2max målinger fra T1 til T2.*"
+
+data <- read_excel("Fysologisk testing.xlsx")
+
+
+ggplot(data, aes(x = timepoint, y = vo2max, color = factor(id))) +
+  geom_point() +
+  geom_line(aes(group = id), linetype = "solid") +
+  
+  labs(title = "Individuelle Data for VO2max",
+       x = "Timepoint",
+       y = "VO2max") +
+  theme_minimal()
+```
+
+
+```{r}
+#| echo: false
 #| fig-cap: "***Tabell 1:** viser Gjennomsittet, Standardavviket, Medianen og de høyeste og laveste målingene til testgruppa.*"
 
 
